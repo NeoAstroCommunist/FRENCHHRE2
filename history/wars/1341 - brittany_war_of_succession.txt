@@ -1,9 +1,9 @@
-name = "War of the Lorraine Succession"
+name = "War of the Breton Succession"
 #casus_belli = cb_claim_throne
 war_goal = {
-	type = hundred_years_war_wargoal
-	casus_belli = cb_hyw_conquest
-	tag = GER
+	type = take_capital_throne
+	casus_belli = cb_claim_throne
+	tag = UTR
 }
 #war_goal = {
 #	type = take_claim
@@ -12,36 +12,37 @@ war_goal = {
 #}
 
 1341.4.30 = {
-	add_attacker = DEN
-	add_defender = GER
-	
 	add_attacker = KOL
-	add_attacker = SAX
-	
 	add_defender = UTR
-	add_defender = AUG
+	
+	add_attacker = DEN
+	add_attacker = SAX
+	add_attacker = HOL
+	
+	add_defender = GER
 	add_defender = FKN
-	add_defender = THU
 	add_defender = HES
 	add_defender = WES
+	add_defender = AUG
+	add_defender = HAB
 	
-} 
+} # Death of Jean III de Bretagne
 
 1351.3.26 = {
 	battle = {
-		name = "Combat of the Thirty"
-		location = 3728
+		name = "CHANGE THIS THING"
+		location = 171
 		attacker = {
-			commander = "Mikael Ebbesen"
+			commander = "Robert Bemborough"
 			cavalry = 30
 			losses = 33	# percent
-			country = DEN
+			country = ENG
 		}
 		defender = {
-			commander = "August Kessler"
+			commander = "Jean de Beaumanoir"
 			cavalry = 30
 			losses = 20	# percent
-			country = GER
+			country = FRA
 		}
 		result = no
 	}
@@ -49,26 +50,67 @@ war_goal = {
 
 1356.9.19 = {
 	battle = {
-		name = "Bamberg"
+		name = "THIS TOO"
 		location = 180
 		attacker = {
-			commander = "Insert someone"
+			commander = "Black Prince"
 			infantry = 6000
 			cavalry = 500
 			losses = 20	# percent
-			country = DEN
+			country = ENG
 		}
 		defender = {
-			commander = "Germanus Generalus"
+			commander = "Bertrand du Guesclin"
 			infantry = 11000
 			cavalry = 500
 			losses = 45	# percent
-			country = GER
+			country = FRA
 		}
 		result = yes
 	}
 }
 
-1356.10.17 = {
-	add_attacker = HOL
+1364.9.29 = {
+	battle = {
+		name = "Auray"
+		location = 174
+		attacker = {
+			commander = "Jean Chandos"
+			infantry = 3000
+			cavalry = 500
+			losses = 20	# percent
+			country = ENG
+		}
+		defender = {
+			commander = "Bertrand du Guesclin"
+			infantry = 3500
+			cavalry = 500
+			losses = 55	# percent
+			country = FRA
+		}
+		result = yes
+	}
 }
+
+1365.1.1 = {
+	rem_attacker = MNF
+	rem_attacker = NAV
+	rem_attacker = ENG
+	rem_attacker = GUY
+	rem_attacker = DAL
+	
+	rem_defender = BLO
+	rem_defender = FRA
+	rem_defender = AMG
+	rem_defender = ANJ
+	rem_defender = BAR
+	rem_defender = BOU
+	rem_defender = CMJ
+	rem_defender = FOI
+	rem_defender = NRM
+	rem_defender = ORL
+	rem_defender = VLT
+	rem_defender = BUR
+	rem_defender = AUV
+	rem_defender = BGG
+} # Traité de Guérande

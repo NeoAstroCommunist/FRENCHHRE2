@@ -1,8 +1,10 @@
 # 3728 - Goslar
 
-owner = SAX
+owner = GER
 controller = SAX
+add_core = GER
 add_core = SAX
+add_permanent_claim = GER
 
 capital = "Goslar"
 trade_goods = wheat
@@ -36,6 +38,7 @@ discovered_by = muslim
 		duration = -1
 	}
 	set_province_flag = beer
+        set_province_flag = HYW_province_target
 }
 #1495.1.1 = {
 #	owner = BRU

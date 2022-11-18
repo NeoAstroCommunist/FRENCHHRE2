@@ -4,6 +4,7 @@ owner = SAX
 controller = SAX
 add_core = SAX
 add_core = BRA
+add_permanent_claim = GER
 
 capital = "Perleberg"
 trade_goods = livestock

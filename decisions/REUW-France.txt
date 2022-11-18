@@ -3,7 +3,6 @@ country_decisions = {
 	negociate_freedom_jean = {
 		
 		potential = {
-		    always = no
 			tag = GER
 			war_with = DEN
 			has_country_flag = ruler_prisonner_of_war

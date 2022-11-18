@@ -3,6 +3,7 @@
 owner = SAX
 controller = SAX
 add_core = SAX
+add_permanent_claim = GER
 
 capital = "Magdeburg"
 trade_goods = wheat

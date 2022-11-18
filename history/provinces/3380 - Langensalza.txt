@@ -1,7 +1,8 @@
 # 3380 - Langensalza
 
-owner = THU
+owner = GER
 controller = SAX
+add_core = GER
 add_core = THU
 
 capital = "Langensalza"

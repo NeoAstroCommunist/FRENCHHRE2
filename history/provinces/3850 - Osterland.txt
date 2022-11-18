@@ -1,7 +1,8 @@
 # 3850 - Colditz
 
-owner = THU
-controller = THU
+owner = GER
+controller = GER
+add_core = GER
 add_core = THU
 
 capital = "Colditz"

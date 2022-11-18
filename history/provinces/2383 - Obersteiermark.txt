@@ -1,7 +1,8 @@
 # 2383 - Obersteiermark
 
-owner = GER
-controller = GER
+owner = HAB
+controller = HAB
+add_core = HAB
 add_core = GER
 add_core = BAV
 add_core = CAR

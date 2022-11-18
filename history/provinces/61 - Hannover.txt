@@ -3,6 +3,7 @@
 owner = SAX
 controller = SAX
 add_core = SAX
+add_permanent_claim = GER
 
 capital = "Hannover"
 trade_goods = livestock
@@ -31,7 +32,8 @@ discovered_by = muslim
 	add_permanent_province_modifier = {
 		name = Knights_Commandery_Low
 		duration = -1
-	}	
+	}
+        set_province_flag = HYW_province_target	
 }
 #1432.1.1 = {
 #	owner = HAN

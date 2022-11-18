@@ -1,7 +1,8 @@
 # 134 - Oberostarichi
 
-owner = GER
-controller = GER
+owner = HAB
+controller = HAB
+add_core = HAB
 add_core = GER
 add_core = BAV
 

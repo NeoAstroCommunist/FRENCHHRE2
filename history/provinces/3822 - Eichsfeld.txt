@@ -1,7 +1,8 @@
 # 3822 - Eichsfeld
 
-owner = THU
+owner = GER
 controller = SAX
+add_core = GER
 add_core = THU
 
 capital = "Duderstadt"

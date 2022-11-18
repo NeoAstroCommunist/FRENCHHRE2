@@ -2,22 +2,6 @@
 
 dependency = {
 	subject_type = "custom_vassal"
-	first = GER
-	second = UTR
-	start_date = 1328.1.1
-	end_date = 1474.1.1
-}
-
-dependency = {
-	subject_type = "custom_vassal"
-	first = DEN
-	second = KOL
-	start_date = 1328.1.1
-	end_date = 1474.1.1
-}
-
-dependency = {
-	subject_type = "custom_vassal"
 	first = PLT
 	second = H62
 	start_date = 1328.1.1
@@ -129,7 +113,7 @@ dependency = {
 }
 
 dependency = {
-	subject_type = "appanage_subject"
+	subject_type = "decentralized_vassal"
 	first = GER
 	second = FKN
 	start_date = 1356.1.10
@@ -137,15 +121,15 @@ dependency = {
 }
 
 dependency = {
-	subject_type = "appanage_subject"
+	subject_type = "daimyo_vassal"
 	first = GER
-	second = THU
+	second = HAB
 	start_date = 1356.1.10
 	end_date = 1361.11.21
 }
 
 dependency = {
-	subject_type = "appanage_subject"
+	subject_type = "decentralized_vassal"
 	first = GER
 	second = HES
 	start_date = 1356.1.10
@@ -153,7 +137,7 @@ dependency = {
 }
 
 dependency = {
-	subject_type = "appanage_subject"
+	subject_type = "decentralized_vassal"
 	first = GER
 	second = LSA
 	start_date = 1356.1.10
@@ -161,7 +145,7 @@ dependency = {
 }
 
 dependency = {
-	subject_type = "appanage_subject"
+	subject_type = "decentralized_vassal"
 	first = GER
 	second = WES
 	start_date = 1356.1.10
