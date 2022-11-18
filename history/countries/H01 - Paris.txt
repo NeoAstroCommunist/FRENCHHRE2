@@ -1,0 +1,102 @@
+# French states
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+add_government_reform = Pol_NominalEmpire
+government_rank = 1
+mercantilism = 0.0
+primary_culture = francien
+religion = catholic
+technology_group = western
+capital = 183
+#fixed_capital = 183 # Paris
+elector = yes
+
+1000.1.1 = {
+	add_country_modifier = { name = title_4 duration = -1 }
+	set_country_flag = title_3
+	set_country_flag = k_of_fra
+	set_country_flag = ifrikiya_ambitions
+	#set_key = { lhs = centralization_decentralization value = 5 }
+	add_absolutism = -100
+	add_absolutism = 10
+}
+
+1336.1.1 = {
+	leader = {
+		name = "Bertrand du Guesclin"
+		type = general
+		fire = 3
+		shock = 4
+		manuever = 4
+		siege = 1
+		death_date = 1380.7.13
+	}
+}
+
+1350.8.22 = {
+	monarch = {
+		name = "Charles IV"
+		dynasty = "Capet"
+		birth_date = 1294.7.188
+		ADM = 3 
+		DIP = 3
+		MIL = 6
+	}
+	queen = {
+		country_of_origin = AUV
+		name = "Jeanne"
+		dynasty = "d'Evreux"
+		birth_date = 1310.5.8
+		death_date = 1371.9.29
+		female = yes
+		ADM = 3
+		DIP = 4
+		MIL = 2
+	}
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles V le Bump"
+		dynasty = "Capet"
+		birth_date = 1338.1.21
+		claim = 95
+		ADM = 5
+		DIP = 4
+		MIL = 3
+	}
+	define_ruler_to_general = { 
+		fire = 3
+		shock = 3
+		manuever = 2
+		siege = 3
+	}
+	
+	add_ruler_personality = secretive_personality
+	add_ruler_personality = righteous_personality
+	add_heir_personality = wise_personality
+	#add_war_exhaustion = 10 # done in-script for economic reasons
+}
+
+#1364.4.8 = {
+#	monarch = {
+#		name = "Charles"
+#		monarch_name = "Charles V le Sage"
+#		dynasty = "de Valois"
+#		birth_date = 1338.1.21
+#		ADM = 5
+#		DIP = 4
+#		MIL = 3
+#	}
+#	queen = {
+#		country_of_origin = BOU
+#		name = "Jeanne"
+#		dynasty = "de Bourbon"
+#		birth_date = 1338.2.3
+#		death_date = 1378.2.6
+#		female = yes
+#		ADM = 2
+#		DIP = 2
+#		MIL = 2
+#	}

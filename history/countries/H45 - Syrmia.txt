@@ -1,0 +1,38 @@
+# Syrmia
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.0
+primary_culture = hungarian
+add_accepted_culture = croatian
+religion = catholic
+technology_group = western
+capital = 1270
+historical_rival = H49
+historical_rival = HUN
+historical_rival = H44
+historical_rival = H47
+historical_rival = H48
+
+1000.1.1 = {
+	add_country_modifier = { name = title_3 duration = -1 }
+	set_country_flag = title_3
+	set_country_flag = hungarian_magnate
+	#set_key = { lhs = centralization_decentralization value = 2 }
+	add_absolutism = -100
+	add_absolutism = 20
+}
+
+1346.8.26 = {
+	monarch = {
+		name = "Nicholas"
+		dynasty = "Ujlaki"
+		birth_date = 1299.6.12
+		ADM = 4      
+		DIP = 6 
+		MIL = 5
+	}
+}

@@ -1,0 +1,31 @@
+# La Marche
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.0
+primary_culture = limousin
+religion = catholic
+technology_group = western
+capital = 1384
+
+1000.1.1 = {
+	add_country_modifier = { name = title_1 duration = -1 }
+	set_country_flag = title_1
+	#set_key = { lhs = centralization_decentralization value = 2 }
+	add_absolutism = -100
+	add_absolutism = 15
+}
+
+1327.8.10 = {
+	monarch = {
+		name = "James I"
+		dynasty = "de Bourbon"
+		birth_date = 1319.3.6
+		ADM = 4
+		DIP = 3
+		MIL = 5
+	}
+}

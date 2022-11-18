@@ -1,0 +1,30 @@
+# LIV - Livonia
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.0
+technology_group = western
+primary_culture = latvian
+religion = baltic_pagan
+capital = 38
+
+1000.1.1 = {
+	add_country_modifier = { name = title_4 duration = -1 }
+	set_country_flag = title_4
+	#set_key = { lhs = centralization_decentralization value = 4 }
+	add_absolutism = -100
+	add_absolutism = 10
+}
+
+1338.1.1 = {
+	monarch = {
+		name = "Andryvs"
+		dynasty = "Talivaldis"
+		ADM = 4
+		DIP = 1
+		MIL = 3
+	}
+}

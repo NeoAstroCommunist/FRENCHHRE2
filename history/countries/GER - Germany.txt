@@ -1,0 +1,50 @@
+# GER - Germany
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.0
+technology_group = western
+primary_culture = schwabisch
+add_accepted_culture = hessian
+add_accepted_culture = high_saxon
+add_accepted_culture = ripuarianfranconian
+add_accepted_culture = eastfranconian
+add_accepted_culture = bavarian
+add_accepted_culture = rhine_alemanisch
+add_accepted_culture = suisse
+add_accepted_culture = austrian
+religion = catholic
+capital = 77	# Berlin
+historical_rival = DEN
+
+1000.1.1 = {
+	add_country_modifier = { name = title_5 duration = -1 }
+	set_country_flag = title_5
+	#set_key = { lhs = centralization_decentralization value = 0 }
+	add_absolutism = -100
+	add_absolutism = 10
+}
+
+1356.1.1 = {
+	monarch = {
+		name = "Thankmar II"
+		dynasty = "Liudolfinger"
+		ADM = 3
+		DIP = 4
+		MIL = 3
+	}
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles der Weis"
+		dynasty = "Liudolfinger"
+		birth_date = 1338.1.21
+		death_date = 1380.9.16
+		claim = 95
+		ADM = 5
+		DIP = 4
+		MIL = 3
+	}
+}

@@ -1,0 +1,74 @@
+name = "War of the Lorraine Succession"
+#casus_belli = cb_claim_throne
+war_goal = {
+	type = hundred_years_war_wargoal
+	casus_belli = cb_hyw_conquest
+	tag = GER
+}
+#war_goal = {
+#	type = take_claim
+#	casus_belli = cb_conquest
+#	province = 1388			# Nantes
+#}
+
+1341.4.30 = {
+	add_attacker = DEN
+	add_defender = GER
+	
+	add_attacker = KOL
+	add_attacker = SAX
+	
+	add_defender = UTR
+	add_defender = AUG
+	add_defender = FKN
+	add_defender = THU
+	add_defender = HES
+	add_defender = WES
+	
+} 
+
+1351.3.26 = {
+	battle = {
+		name = "Combat of the Thirty"
+		location = 3728
+		attacker = {
+			commander = "Mikael Ebbesen"
+			cavalry = 30
+			losses = 33	# percent
+			country = DEN
+		}
+		defender = {
+			commander = "August Kessler"
+			cavalry = 30
+			losses = 20	# percent
+			country = GER
+		}
+		result = no
+	}
+}
+
+1356.9.19 = {
+	battle = {
+		name = "Bamberg"
+		location = 180
+		attacker = {
+			commander = "Insert someone"
+			infantry = 6000
+			cavalry = 500
+			losses = 20	# percent
+			country = DEN
+		}
+		defender = {
+			commander = "Germanus Generalus"
+			infantry = 11000
+			cavalry = 500
+			losses = 45	# percent
+			country = GER
+		}
+		result = yes
+	}
+}
+
+1356.10.17 = {
+	add_attacker = HOL
+}

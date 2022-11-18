@@ -1,0 +1,31 @@
+# Parthenay
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.0
+primary_culture = poitevin
+religion = catholic
+technology_group = western
+capital = 70
+
+1000.1.1 = {
+	add_country_modifier = { name = title_4 duration = -1 }
+	set_country_flag = title_4
+	#set_key = { lhs = centralization_decentralization value = 2 }
+	add_absolutism = -100
+	add_absolutism = 30
+}
+
+1356.1.30 = {
+	monarch = {
+		name = "Jean I"
+		dynasty = "de Parthenay"
+		birth_date = 1300.2.17 
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}

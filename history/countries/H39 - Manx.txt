@@ -1,0 +1,31 @@
+# Manx
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.0
+primary_culture = highland_scottish
+religion = catholic
+technology_group = western
+capital = 1514
+
+1000.1.1 = {
+	add_country_modifier = { name = title_5 duration = -1 }
+	set_country_flag = title_5
+	#set_key = { lhs = centralization_decentralization value = 2 }
+	add_absolutism = -100
+	add_absolutism = 30
+}
+
+1344.1.30 = {
+	monarch = {
+		name = "William"
+		dynasty = "de Montacute"
+		birth_date = 1328.7.25 
+		ADM = 3
+		DIP = 3
+		MIL = 5
+	}
+}

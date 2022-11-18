@@ -1,0 +1,32 @@
+# Angouleme
+
+government = theocracy
+
+add_government_reform = Pol_Mediumship3
+add_government_reform = Pol_Organisation1
+add_government_reform = Pol_Nobility1
+add_government_reform = Pol_Assembly1
+government_rank = 1
+mercantilism = 0.0
+primary_culture = poitevin
+religion = catholic
+technology_group = western
+capital = 2239
+
+1000.1.1 = {
+	add_country_modifier = { name = title_2 duration = -1 }
+	set_country_flag = title_2
+	#set_key = { lhs = centralization_decentralization value = 2 }
+	add_absolutism = -100
+	add_absolutism = 20
+}
+
+1351.6.1 = {
+	monarch = {
+		name = "Gaillard du Puy"
+		birth_date = 1308.5.1
+		DIP = 3
+		ADM = 5
+		MIL = 1
+	}
+}

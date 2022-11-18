@@ -1,0 +1,253 @@
+namespace = HRE_hungarian_magnates_war
+
+country_event = {
+	id = HRE_hungarian_magnates_war.1
+	title = HRE_hungarian_magnates_war.1.t
+	desc = HRE_hungarian_magnates_war.1.d
+	picture = CONQUEST_eventPicture
+	
+	trigger = { 
+	    has_global_flag = hungarian_war_ongoing
+		OR = {
+		    tag = HUN
+			tag = H44
+			tag = H45
+			tag = H47
+			tag = H48
+			tag = H49
+		}
+		capital_scope = {
+			NOT = { controlled_by = ROOT }
+			controller = {
+				OR = {
+					primary_culture = hungarian
+					primary_culture = cuman
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = { months = 1 }
+	option = {
+	trigger = { tag = HUN }
+	name = HRE_hungarian_magnates_war.1.a
+	every_owned_province = { limit = { is_capital = no NOT = { controlled_by = ROOT } } cede_province = controller }
+	capital_scope = { controller = { country_event = { id = HRE_hungarian_magnates_war.2 } } }
+		any_province = {
+ 	        limit = { is_core = ROOT }
+    		remove_core = ROOT
+    	}
+	}
+	option = { 
+	trigger = { NOT = { tag = HUN } }
+	name = HRE_hungarian_magnates_war.1.b
+	every_owned_province = { limit = { is_capital = no NOT = { controlled_by = ROOT } } cede_province = controller }
+	capital_scope = { controller = { country_event = { id = HRE_hungarian_magnates_war.3 } } }
+		any_province = {
+ 	        limit = { is_core = ROOT }
+    		remove_core = ROOT
+    	}
+	}
+}
+
+country_event = {
+	id = HRE_hungarian_magnates_war.2
+	title = HRE_hungarian_magnates_war.2.t
+	desc = HRE_hungarian_magnates_war.2.d
+	picture = CONQUEST_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	name = HRE_hungarian_magnates_war.2.a
+	ROOT = { inherit = FROM }
+	    any_province = {
+ 	        limit = { is_core = ROOT }
+    		remove_core = ROOT
+    	}
+		if = {
+			limit = { monarchy_or_harem_gov = yes NOT = { has_country_modifier = title_5 has_country_modifier = title_6 } }
+			change_title_5 = yes
+		}
+		change_tag = HUN
+	}
+}
+
+country_event = {
+	id = HRE_hungarian_magnates_war.3
+	title = HRE_hungarian_magnates_war.3.t
+	desc = HRE_hungarian_magnates_war.3.d
+	picture = CONQUEST_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	name = HRE_hungarian_magnates_war.3.a
+	    ROOT = { inherit = FROM }
+		any_province = {
+ 	        limit = { is_core = FROM }
+    		remove_core = FROM
+    	}
+	}
+}
+
+country_event = {
+	id = HRE_hungarian_magnates_war.4
+	title = HRE_hungarian_magnates_war.4.t
+	desc = HRE_hungarian_magnates_war.4.d
+	picture = CONQUEST_eventPicture
+	
+	trigger = { 
+	    NOT = { has_global_flag = hungarian_war_ongoing }
+		tag = HUN
+	}
+	mean_time_to_happen = { days = 1 }
+	fire_only_once = yes
+	option = {
+	name = HRE_hungarian_magnates_war.4.a
+	set_global_flag = hungarian_war_ongoing
+	}
+}
+
+country_event = {
+	id = HRE_hungarian_magnates_war.5
+	title = HRE_hungarian_magnates_war.5.t
+	desc = HRE_hungarian_magnates_war.5.d
+	picture = CONQUEST_eventPicture
+	
+	trigger = { 
+	    has_global_flag = hungarian_war_ongoing
+		OR = {
+		    tag = HUN
+			tag = H44
+			tag = H45
+			tag = H47
+			tag = H48
+			tag = H49
+		}
+		NOT = {
+		    calc_true_if = {
+	           all_country = {
+	          	has_country_flag = hungarian_magnate
+              	}
+              	amount = 2
+            }
+    	}
+	}
+	mean_time_to_happen = { days = 7 }
+	fire_only_once = yes
+	option = {
+	name = HRE_hungarian_magnates_war.5.a
+	clr_global_flag = hungarian_war_ongoing
+	    IF = {
+    	    limit = { NOT = { tag = HUN } }
+    		if = {
+	    		limit = { monarchy_or_harem_gov = yes NOT = { has_country_modifier = title_5 has_country_modifier = title_6 } }
+	    		change_title_5 = yes
+    		}
+    		change_tag = HUN
+	    }
+	}
+}
+
+country_event = {
+	id = HRE_hungarian_magnates_war.6
+	title = HRE_hungarian_magnates_war.6.t
+	desc = HRE_hungarian_magnates_war.6.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	trigger = { 
+	    has_global_flag = hungarian_war_ongoing
+		is_year = 1366
+		OR = {
+		    tag = HUN
+			tag = H44
+			tag = H45
+			tag = H47
+			tag = H48
+			tag = H49
+		}
+		calc_true_if = {
+	        all_country = {
+	       	has_country_flag = hungarian_magnate
+           	}
+           	amount = 3
+        }
+	}
+	mean_time_to_happen = { days = 7 }
+	fire_only_once = yes
+	option = {
+	name = HRE_hungarian_magnates_war.6.a
+	clr_global_flag = hungarian_war_ongoing
+	}
+}
+
+# country_event = { 
+	# id = HRE_hungarian_magnates_war.7
+	# title = HRE_hungarian_magnates_war.7.t
+	# desc = HRE_hungarian_magnates_war.7.d
+	# picture = CONQUEST_eventPicture
+	# trigger = { 
+		# has_global_flag = hungarian_war_ongoing
+	    # has_country_flag = hungarian_magnate
+		# every_country = {
+		    # limit = { is_subject_of = ROOT is_subject_of_type = personal_union has_country_flag = hungarian_magnate }
+		# }
+	# }
+	# mean_time_to_happen = { days = 7 }
+	# fire_only_once = yes
+	# option = {
+	# name = HRE_hungarian_magnates_war.7.a
+	    # all_country = {
+		    # limit = { is_subject_of = ROOT is_subject_of_type = personal_union has_country_flag = hungarian_magnate }
+            # country_event = { id = HRE_hungarian_magnates_war.8 }
+		# }
+	# }
+# }
+
+# country_event = {
+	# id = HRE_hungarian_magnates_war.8
+	# title = HRE_hungarian_magnates_war.8.t
+	# desc = HRE_hungarian_magnates_war.8.d
+	# picture = CONQUEST_eventPicture
+	# is_triggered_only = yes
+	# option = {
+	# name = HRE_hungarian_magnates_war.8.a
+	# FROM = { inherit = ROOT }
+	# }
+# }
+
+country_event = {
+	id = HRE_hungarian_magnates_war.9
+	title = HRE_hungarian_magnates_war.9.t
+	desc = HRE_hungarian_magnates_war.9.d
+	picture = CONQUEST_eventPicture
+	trigger = { 
+	    is_at_war = no
+		has_global_flag = hungarian_war_ongoing
+	    has_country_flag = hungarian_magnate
+		any_neighbor_country = { AND = { has_country_flag = hungarian_magnate NOT = { truce_with = ROOT } } }
+	}
+	mean_time_to_happen = { days = 7 }
+	option = {
+	name = HRE_hungarian_magnates_war.9.a
+		random_neighbor_country = {
+		    limit = { has_country_flag = hungarian_magnate }
+			ROOT = {
+				if = {
+					limit = {
+					    has_country_flag = hungarian_magnate
+						NOT = {
+							truce_with = ROOT
+							is_subject_of = ROOT
+						}
+					}
+					declare_war_with_cb = {
+						who = PREV
+						casus_belli = cb_annex
+					}
+				}
+			}
+		}
+	}
+}

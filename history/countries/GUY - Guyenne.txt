@@ -1,0 +1,38 @@
+# GUY - Guyenne
+# Duchy of Aquitaine
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.0
+technology_group = western
+primary_culture = gascon
+add_accepted_culture = poitevin
+religion = catholic
+capital = 176 # Guiana
+historical_friend = ENG
+
+1000.1.1 = {
+	add_country_modifier = { name = title_3 duration = -1 }
+	set_country_flag = title_3
+	set_country_flag = d_of_guy
+	#set_key = { lhs = centralization_decentralization value = 3 }
+	add_absolutism = -100
+	add_absolutism = 20
+}
+
+1356.1.1 = {
+	monarch = {
+		name = "Lionel"
+		dynasty = "Plantagenet"
+		culture = anglois
+		birth_date = 1338.11.29
+		death_date = 1376.6.8
+		claim = 95
+		ADM = 3
+		DIP = 3
+		MIL = 5
+	}
+}

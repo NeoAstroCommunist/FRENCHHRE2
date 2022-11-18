@@ -1,0 +1,51 @@
+# POR - Portugal
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.10
+
+primary_culture = portuguese
+religion = catholic
+technology_group = western
+historical_friend = SPA
+historical_neutral = CAS
+historical_neutral = ARA
+historical_neutral = ENR
+historical_neutral = VIJ
+historical_friend = ENG
+capital = 230	# Lisboa
+add_army_professionalism = 0.05
+national_focus = DIP
+
+1000.1.1 = {
+	add_country_modifier = { name = title_5 duration = -1 }
+	set_country_flag = title_5
+	set_country_flag = k_of_por
+	add_absolutism = -100
+	add_absolutism = 20
+}
+
+1325.1.7 = {
+	monarch = {
+		name = "Leonche"
+		dynasty = "de Glanvill"
+		birth_date = 1291.2.8
+		ADM = 1
+		DIP = 1
+		MIL = 1
+	}
+	heir = {
+		name = "Balduin"
+		monarch_name = "Balduin"
+		dynasty = "de Glanvill"
+		birth_date = 1320.1.1
+		death_date = 1367.1.18
+		claim = 95
+		ADM = 4
+		DIP = 3
+		MIL = 2
+	}
+}

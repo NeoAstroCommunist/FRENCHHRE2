@@ -1,0 +1,37 @@
+
+government = theocracy
+add_government_reform = Pol_Mediumship1
+add_government_reform = Pol_Organisation2
+add_government_reform = Pol_Nobility2
+add_government_reform = Pol_Assembly1
+government_rank = 1
+mercantilism = 0.0
+primary_culture = frankish
+religion = catholic
+technology_group = byzantine
+unit_type = western
+capital = 2498
+add_army_professionalism = 0.1
+
+1000.1.1 = {
+	add_country_modifier = { name = title_2 duration = -1 }
+	set_country_flag = title_2
+	#set_key = { lhs = centralization_decentralization value = 1 }
+	add_absolutism = -100
+	add_absolutism = 40
+	#set_country_flag = crusader_kingdom
+	add_country_modifier = {
+		name = Knights_Pilgrims
+		duration = -1
+	}
+}
+
+1355.1.1 = {
+	monarch = {
+		name = "Robert de Antibes"
+		ADM = 3
+		DIP = 1
+		MIL = 5
+	}
+	set_country_flag = crusader_kingdom
+}

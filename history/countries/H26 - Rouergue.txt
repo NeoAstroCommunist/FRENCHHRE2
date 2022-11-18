@@ -1,0 +1,30 @@
+# Rouergue
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.0
+primary_culture = occitain
+religion = catholic
+technology_group = western
+capital = 1323
+
+1000.1.1 = {
+	add_country_modifier = { name = title_1 duration = -1 }
+	set_country_flag = title_1
+	#set_key = { lhs = centralization_decentralization value = 2 }
+	add_absolutism = -100
+	add_absolutism = 15
+}
+
+1330.6.12 = {
+	monarch = {
+		name = "Clermont"
+		dynasty = "Rouergue"
+		ADM = 2
+		DIP = 5
+		MIL = 3
+	}
+}

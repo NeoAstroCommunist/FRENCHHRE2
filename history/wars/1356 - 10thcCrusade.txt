@@ -1,0 +1,27 @@
+name = "Tenth Crusade"
+war_goal = {
+	type = superiority_crusade
+	casus_belli = cb_crusade
+	tag = CHU
+}
+1356.7.1 = {
+	add_attacker = H57
+	add_attacker = DMI
+	add_attacker = DOG
+	add_attacker = H56
+	add_attacker = FAI
+	add_attacker = ALX
+	add_attacker = H58
+	add_attacker = KOJ
+	add_attacker = CTR
+	add_attacker = ANI
+	add_attacker = KNI
+	add_attacker = KAM
+	add_attacker = CYP
+	add_defender = MAM
+	add_defender = SYR
+	add_defender = MKU
+	add_defender = FAD
+	#add_defender = HEJ #Had to remove Hejaz from this war as crusaders are absolutely incompetent, just like in real life.
+	#add_defender = DUL #They still can't win even with numerical and technological advantage
+}

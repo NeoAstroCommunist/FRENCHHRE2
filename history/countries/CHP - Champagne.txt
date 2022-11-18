@@ -1,0 +1,45 @@
+# CHP - Duchy  of Champagne
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+# centralization_decentralization = -5
+mercantilism = 0.0
+technology_group = western
+religion = catholic
+primary_culture = francien
+capital = 2354	# Troyes
+
+
+1000.1.1 = {
+	add_country_modifier = { name = title_1 duration = -1 }
+	set_country_flag = title_1
+	#set_key = { lhs = centralization_decentralization value = -5 }
+	add_absolutism = -100
+	add_absolutism = 10
+}
+
+1341.4.30 = {
+#	set_country_flag = brittany_war_succession
+	monarch = {
+		name = "Charles"
+		dynasty = "de Chatillon-Blois"
+		birth_date = 1319.1.1
+		ADM = 3
+		DIP = 3
+		MIL = 5
+	}
+	queen = {
+		country_of_origin = BLO
+		name = "Jeanne"
+		dynasty = "de Penthiиvre"
+		birth_date = 1319.1.1
+		death_date = 1384.9.10
+		female = yes
+		ADM = 5
+		DIP = 3
+		MIL = 3
+	}
+}

@@ -1,0 +1,27 @@
+# Cumania
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.0
+primary_culture = cuman
+add_accepted_culture = hungarian
+religion = catholic
+technology_group = western
+capital = 3901
+historical_rival = HUN
+historical_rival = H45
+historical_rival = H44
+historical_rival = H47
+historical_rival = H48
+
+1000.1.1 = {
+	add_country_modifier = { name = title_3 duration = -1 }
+	set_country_flag = title_3
+	set_country_flag = hungarian_magnate
+	#set_key = { lhs = centralization_decentralization value = 2 }
+	add_absolutism = -100
+	add_absolutism = 0
+}

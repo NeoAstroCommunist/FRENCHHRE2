@@ -1,0 +1,30 @@
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.0
+technology_group = western
+religion = catholic
+primary_culture = anglosaxon
+add_accepted_culture = gothic
+capital = 4010	
+
+1000.1.1 = {
+	add_country_modifier = { name = title_5 duration = -1 }
+	set_country_flag = title_5
+	#set_key = { lhs = centralization_decentralization value = 4 }
+	add_absolutism = -100
+	add_absolutism = 20
+}
+
+1323.4.9 = {
+	monarch = {
+		name = "Harold V"
+		dynasty = "Godwin"
+		ADM = 3
+		DIP = 3
+		MIL = 3
+	}
+}

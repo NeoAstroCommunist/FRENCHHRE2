@@ -1,0 +1,194 @@
+# Normandy that is actually Normand
+
+government = monarchy
+add_government_reform = Pol_Succession1 #feel free to revise
+add_government_reform = Pol_Assembly1
+add_government_reform = Pol_Nobility1
+government_rank = 1
+mercantilism = 0.0
+technology_group = western
+primary_culture = normand
+add_accepted_culture = anglois
+religion = catholic
+elector = yes
+capital = 168	# Caen
+
+1000.1.1 = {
+	add_country_modifier = { name = title_4 duration = -1 }
+	set_country_flag = title_4
+	set_country_flag = d_of_nrm
+	#set_key = { lhs = centralization_decentralization value = -1 }
+	add_absolutism = -100
+	add_absolutism = 60
+	add_country_modifier = {
+		name = "longbowmen_modifier"
+		duration = -1
+	}
+	#set_country_flag = papal_fiefdom_ENG
+}
+
+1327.1.25 = {
+	monarch = {
+		name = "Edward III"
+		dynasty = "Plantagenet"
+		ADM = 4
+		DIP = 4
+		MIL = 6
+		culture = anglois
+		birth_date = 1312.11.13
+	}
+	queen = {
+		country_of_origin = HAI
+		name = "Philippa"
+		dynasty = "de Hainaut"
+		birth_date = 1315.6.24
+		death_date = 1369.8.15
+		female = yes
+		ADM = 3
+		DIP = 4
+		MIL = 2
+	}
+}
+
+
+
+1336.1.1 = {
+	leader = {
+		name = "John Chandos"
+		type = general
+		fire = 4
+		shock = 4
+		manuever = 3
+		siege = 1
+		death_date = 1370.1.1
+	}
+}
+
+1339.1.1 = {
+	leader = {
+		name = "Jean de Grailly"
+		type = general
+		fire = 2
+		shock = 3
+		manuever = 2
+		siege = 1
+		death_date = 1376.1.1
+	}
+}
+
+1341.1.1 = {
+	leader = {
+		name = "Robert Knolles"
+		type = general
+		fire = 3
+		shock = 2
+		manuever = 2
+		siege = 1
+		death_date = 1407.1.1
+	}
+}
+
+1356.2.1 = {
+	heir = {
+		name = "Edward 'the Black Prince'"
+		monarch_name = "Edward IV"
+		dynasty = "Plantagenet"
+		culture = anglois
+		birth_date = 1330.6.15
+		death_date = 1376.6.8
+		claim = 95
+		ADM = 3
+		DIP = 3
+		MIL = 6
+	}
+	
+	add_ruler_personality = energetic_personality
+	add_ruler_personality = lawgiver_personality
+	add_ruler_personality = well_advised_personality
+	add_heir_personality = tactical_genius_personality
+}
+
+#1404.1.1 = {
+#	monarch = {
+#		name = "Jean I"
+#		dynasty = "de Valois"
+#		ADM = 3
+#		DIP = 3
+#		MIL = 3
+#	}
+#}
+
+#1414.1.1 = {
+#	remove_country_modifier = title_1
+#	clr_country_flag = title_1
+#	add_country_modifier = { name = title_3 duration = -1 }
+#	set_country_flag = title_3
+#}
+
+#1415.10.25 = {
+#	monarch = {
+#		name = "Jean II"
+#		dynasty = "de Valois"
+#		ADM = 3
+#		DIP = 3
+#		MIL = 3
+#	}
+#}
+#
+##1439.1.1 = {
+##	remove_country_modifier = "feudal_structure"
+##	add_country_modifier = {
+##		name = "feudal_army_organisation"
+##		duration = -1
+##	}
+##} # The Birth of a Permanent Taxation System
+#
+##1445.1.1 = {
+##	remove_country_modifier = "feudal_army_organisation"
+##} # The Creation of the First Permanent Army
+
+#1476.1.1 = {
+#	monarch = {
+#		name = "René"
+#		dynasty = "de Valois"
+#		ADM = 3
+#		DIP = 3
+#		MIL = 3
+#	}
+#}
+
+#1492.1.1 = {
+#	monarch = {
+#		name = "Charles IV"
+#		dynasty = "de Valois"
+#		ADM = 3
+#		DIP = 3
+#		MIL = 3
+#	}
+#}
+
+#1515.1.1 = {
+#	remove_country_modifier = title_3 clr_country_flag = title_3 add_country_modifier = { name = title_3 duration = -1 }
+#	set_country_flag = title_3
+#}
+
+#1525.1.1 = {
+#	clr_country_flag = appanage_subj
+#}
+
+#1589.8.3 = {
+#	government = monarchy
+#	add_government_reform = Pol_Succession1
+#	add_government_reform = Pol_Assembly1
+#	add_government_reform = Pol_Nobility1
+#	remove_country_modifier = title_3 clr_country_flag = title_3 add_country_modifier = { name = title_3 duration = -1 }
+#	set_country_flag = title_3
+#}
+
+#1661.3.9 = {
+#	government = monarchy
+#	add_absolutism = -100
+#	add_absolutism = 70
+#	remove_country_modifier = title_3 clr_country_flag = title_3 add_country_modifier = { name = title_3 duration = -1 }
+#	set_country_flag = title_3
+#}

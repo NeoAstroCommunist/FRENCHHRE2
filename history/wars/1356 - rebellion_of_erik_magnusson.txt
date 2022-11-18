@@ -1,0 +1,16 @@
+name = "Erik Magnusson's Rebellion"
+war_goal = {
+	type = annex_country
+	casus_belli = cb_annex
+	tag = SWE
+}
+
+1356.1.1 = {
+	add_attacker = RSW
+	add_defender = SWE
+	add_defender = NOR
+}
+1360.1.1 = {
+	rem_attacker = RSW
+	rem_defender = SWE
+}

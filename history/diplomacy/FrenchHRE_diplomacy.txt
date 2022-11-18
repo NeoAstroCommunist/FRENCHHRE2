@@ -1,0 +1,177 @@
+#My dear diplomacy file
+
+dependency = {
+	subject_type = "custom_vassal"
+	first = GER
+	second = UTR
+	start_date = 1328.1.1
+	end_date = 1474.1.1
+}
+
+dependency = {
+	subject_type = "custom_vassal"
+	first = DEN
+	second = KOL
+	start_date = 1328.1.1
+	end_date = 1474.1.1
+}
+
+dependency = {
+	subject_type = "custom_vassal"
+	first = PLT
+	second = H62
+	start_date = 1328.1.1
+	end_date = 1474.1.1
+}
+
+dependency = {
+	subject_type = "custom_vassal"
+	first = PLT
+	second = H61
+	start_date = 1328.1.1
+	end_date = 1474.1.1
+}
+
+dependency = {
+	subject_type = "personal_union"
+	first = DEN
+	second = SAX
+	start_date = 1333.1.1
+	end_date = 1357.1.1
+}
+
+dependency = {
+	subject_type = "personal_union"
+	first = SWE
+	second = NOR
+	start_date = 1345.1.1
+	end_date = 1357.1.1
+}
+
+dependency = {
+	subject_type = "personal_union"
+	first = ANJ
+	second = H10
+	start_date = 1356.1.1
+	end_date = 1357.1.1
+}
+
+dependency = {
+	subject_type = "personal_union"
+	first = ANJ
+	second = H03
+	start_date = 1356.1.1
+	end_date = 1357.1.1
+}
+
+ dependency = {
+	 subject_type = "personal_union"
+	 first = BLO
+	 second = H41
+	 start_date = 1356.1.1
+	 end_date = 1453.7.18
+ }
+
+# dependency = {
+	# subject_type = "close_tributary_state"
+	# first = ENG
+	# second = H09
+	# start_date = 1356.1.1
+	# end_date = 1453.7.18
+# }
+
+dependency = {
+	subject_type = "overseas_fief"
+	first = H09
+	second = ENG
+	start_date = 1066.10.20
+	end_date = 1453.7.18
+}
+
+dependency = {
+	subject_type = "decentralized_vassal"
+	first = ENG
+	second = H36
+	start_date = 1282.1.1
+	end_date = 1485.7.18
+}
+
+dependency = {
+	subject_type = "decentralized_vassal"
+	first = ENG
+	second = H38
+	start_date = 1282.1.1
+	end_date = 1485.7.18
+}
+
+dependency = {
+	subject_type = "decentralized_vassal"
+	first = ENG
+	second = NOL
+	start_date = 1282.1.1
+	end_date = 1485.7.18
+}
+
+dependency = {
+	subject_type = "decentralized_vassal"
+	first = ENG
+	second = WLS
+	start_date = 1282.1.1
+	end_date = 1485.7.18
+}
+
+dependency = {
+	subject_type = "daimyo_vassal"
+	first = NOL
+	second = DRH
+	start_date = 1356.1.1
+	end_date = 1368.6.30
+}
+
+dependency = {
+	subject_type = "appanage_subject"
+	first = GER
+	second = FKN
+	start_date = 1356.1.10
+	end_date = 1361.11.21
+}
+
+dependency = {
+	subject_type = "appanage_subject"
+	first = GER
+	second = THU
+	start_date = 1356.1.10
+	end_date = 1361.11.21
+}
+
+dependency = {
+	subject_type = "appanage_subject"
+	first = GER
+	second = HES
+	start_date = 1356.1.10
+	end_date = 1361.11.21
+}
+
+dependency = {
+	subject_type = "appanage_subject"
+	first = GER
+	second = LSA
+	start_date = 1356.1.10
+	end_date = 1361.11.21
+}
+
+dependency = {
+	subject_type = "appanage_subject"
+	first = GER
+	second = WES
+	start_date = 1356.1.10
+	end_date = 1361.11.21
+}
+
+dependency = {
+	subject_type = "decentralized_vassal"
+	first = GER
+	second = AUG
+	start_date = 1356.1.10
+	end_date = 1361.11.21
+}

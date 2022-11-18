@@ -1,0 +1,333 @@
+namespace = FHRE_HYW_EVENTS
+
+country_event = {
+	id = FHRE_HYW_EVENTS.1 
+	title = "FHRE_HYW_EVENTS.1.name"
+	desc = "FHRE_HYW_EVENTS.1.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	tag = DEN
+	    OR = {
+            NOT = { has_global_flag = HYW_TREATY_OCEH_DENMARK }
+            NOT = { has_global_flag = HYW_TREATY_OCEH_DENMARK_2 }
+        	NOT = { has_global_flag = HYW_TREATY_OCEH_DENMARK_2_1 }
+           	NOT = { has_global_flag = HYW_TREATY_OCEH_DENMARK_3 }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_DENMARK_3_1 }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_GERMAN }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_GERMAN_2 }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_GERMAN_2_1 }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_GERMAN_3 }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_GERMAN_3_1 }
+	    }
+    	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+		    area = weser_area
+			area = westphalia_area
+			area = eastphalia_area
+			area = northern_saxony_area
+    	value = 19
+        }
+	}
+	
+    mean_time_to_happen = { days = 1 }	
+	option = {
+	name = FHRE_HYW_EVENTS.1.opta
+	set_global_flag = HYW_TREATY_OCEH_DENMARK
+	}
+}
+	
+country_event = {
+	id = FHRE_HYW_EVENTS.2
+	title = "FHRE_HYW_EVENTS.2.name"
+	desc = "FHRE_HYW_EVENTS.2.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	tag = DEN
+	    has_global_flag = HYW_TREATY_OCEH_DENMARK
+    	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+		    area = weser_area
+			area = westphalia_area
+			area = west_thuringia_area
+			area = eastphalia_area
+			area = northern_saxony_area
+			area = west_thuringia_area
+			area = hesse_area
+			province_id = 78
+    	value = 28
+        }
+	}
+	
+    mean_time_to_happen = { days = 1 }	
+	option = {
+	name = FHRE_HYW_EVENTS.1.opta
+	set_global_flag = HYW_TREATY_OCEH_DENMARK_2
+	}
+}
+
+country_event = {
+	id = FHRE_HYW_EVENTS.3
+	title = "FHRE_HYW_EVENTS.3.name"
+	desc = "FHRE_HYW_EVENTS.3.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	tag = DEN
+	    has_global_flag = HYW_TREATY_OCEH_DENMARK_2
+    	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+		    area = weser_area
+			area = westphalia_area
+			area = west_thuringia_area
+			area = eastphalia_area
+			area = northern_saxony_area
+			area = west_thuringia_area
+			area = hesse_area
+			province_id = 78
+			region = swabia_bavarian_region
+			region = upper_rhenish_circle_region
+    	value = 68
+        }
+	}
+	
+    mean_time_to_happen = { days = 1 }	
+	option = {
+	name = FHRE_HYW_EVENTS.1.opta
+	set_global_flag = HYW_TREATY_OCEH_DENMARK_3
+	clr_global_flag = hundred_years_war
+	}
+}
+
+country_event = {
+	id = FHRE_HYW_EVENTS.4
+	title = "FHRE_HYW_EVENTS.4.name"
+	desc = "FHRE_HYW_EVENTS.4.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	tag = DEN
+	    has_global_flag = HYW_TREATY_OCEH_GERMANY
+    	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+		    area = weser_area
+			area = westphalia_area
+			area = eastphalia_area
+			area = northern_saxony_area
+    	value = 19
+        }
+	}
+	
+    mean_time_to_happen = { days = 1 }	
+	option = {
+	name = FHRE_HYW_EVENTS.1.opta
+	set_global_flag = HYW_TREATY_OCEH_DENMARK
+	clr_global_flag = HYW_TREATY_OCEH_GERMANY
+	}
+}
+
+country_event = {
+	id = FHRE_HYW_EVENTS.5
+	title = "FHRE_HYW_EVENTS.5.name"
+	desc = "FHRE_HYW_EVENTS.5.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	tag = DEN
+	    has_global_flag = HYW_TREATY_OCEH_GERMANY_2
+    	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			region = lower_saxon_circle_region
+			region = upper_saxon_circle_region
+			region = westphalian_circle_region
+    	value = 24
+        }
+	}
+	
+    mean_time_to_happen = { days = 1 }	
+	option = {
+	name = FHRE_HYW_EVENTS.1.opta
+	set_global_flag = HYW_TREATY_OCEH_DENMARK_2_1
+	clr_global_flag = HYW_TREATY_OCEH_GERMANY_2
+	}
+}
+
+country_event = {
+	id = FHRE_HYW_EVENTS.6
+	title = "FHRE_HYW_EVENTS.6.name"
+	desc = "FHRE_HYW_EVENTS.6.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	tag = DEN
+	    has_global_flag = HYW_TREATY_OCEH_GERMANY_2_1
+    	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			region = lower_saxon_circle_region
+			region = upper_saxon_circle_region
+			region = westphalian_circle_region
+			region = swabia_bavarian_region
+			region = upper_rhenish_circle_region
+    	value = 65
+        }
+	}
+	
+    mean_time_to_happen = { days = 1 }	
+	option = {
+	name = FHRE_HYW_EVENTS.1.opta
+	set_global_flag = HYW_TREATY_OCEH_DENMARK_3
+	clr_global_flag = HYW_TREATY_OCEH_GERMANY_2_1
+	}
+}
+#German part
+country_event = {
+	id = FHRE_HYW_EVENTS.7
+	title = "FHRE_HYW_EVENTS.7.name"
+	desc = "FHRE_HYW_EVENTS.7.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	tag = GER
+	    OR = {
+            NOT = { has_global_flag = HYW_TREATY_OCEH_DENMARK }
+            NOT = { has_global_flag = HYW_TREATY_OCEH_DENMARK_2 }
+        	NOT = { has_global_flag = HYW_TREATY_OCEH_DENMARK_2_1 }
+           	NOT = { has_global_flag = HYW_TREATY_OCEH_DENMARK_3 }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_DENMARK_3_1 }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_GERMAN }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_GERMAN_2 }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_GERMAN_2_1 }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_GERMAN_3 }
+	        NOT = { has_global_flag = HYW_TREATY_OCEH_GERMAN_3_1 }
+	    }
+    	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+		    area = weser_area
+			area = westphalia_area
+    	value = 9
+        }
+	}
+	
+    mean_time_to_happen = { days = 1 }	
+	option = {
+	name = FHRE_HYW_EVENTS.6.opta
+	set_global_flag = HYW_TREATY_OCEH_GERMANY
+	}
+}
+
+country_event = {
+	id = FHRE_HYW_EVENTS.8
+	title = "FHRE_HYW_EVENTS.8.name"
+	desc = "FHRE_HYW_EVENTS.8.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	tag = GER
+	    has_global_flag = HYW_TREATY_OCEH_GERMANY
+    	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+		    area = weser_area
+			area = westphalia_area
+			area = eastphalia_area
+			area = northern_saxony_area
+			province_id = 2621
+    	value = 28
+        }
+	}
+	
+    mean_time_to_happen = { days = 1 }	
+	option = {
+	name = FHRE_HYW_EVENTS.6.opta
+	set_global_flag = HYW_TREATY_OCEH_GERMANY_2
+	}
+}
+
+country_event = {
+	id = FHRE_HYW_EVENTS.9
+	title = "FHRE_HYW_EVENTS.9.name"
+	desc = "FHRE_HYW_EVENTS.9.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	tag = GER
+	    OR = {
+	    has_global_flag = HYW_TREATY_OCEH_GERMANY_2
+    	has_global_flag = HYW_TREATY_OCEH_GERMANY_2_1
+		}
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			region = lower_saxon_circle_region
+			region = upper_saxon_circle_region
+			region = westphalian_circle_region
+			region = swabia_bavarian_region
+			region = upper_rhenish_circle_region
+			area = mecklenburg_area
+    	value = 70
+        }
+	}
+	
+    mean_time_to_happen = { days = 1 }	
+	option = {
+	name = FHRE_HYW_EVENTS.6.opta
+	set_global_flag = HYW_TREATY_OCEH_GERMANY_3
+	}
+}
+
+country_event = {
+	id = FHRE_HYW_EVENTS.10
+	title = "FHRE_HYW_EVENTS.10.name"
+	desc = "FHRE_HYW_EVENTS.10.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	tag = GER
+	    has_global_flag = HYW_TREATY_OCEH_DENMARK
+    	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+		    area = weser_area
+			area = westphalia_area
+    	value = 9
+        }
+	}
+	
+    mean_time_to_happen = { days = 1 }	
+	option = {
+	name = FHRE_HYW_EVENTS.1.opta
+	set_global_flag = HYW_TREATY_OCEH_GERMANY
+	clr_global_flag = HYW_TREATY_OCEH_DENMARK
+	}
+}
+
+country_event = {
+	id = FHRE_HYW_EVENTS.11
+	title = "FHRE_HYW_EVENTS.11.name"
+	desc = "FHRE_HYW_EVENTS.11.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	trigger = { 
+	tag = GER
+	    has_global_flag = HYW_TREATY_OCEH_DENMARK_2
+    	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+		    area = weser_area
+			area = westphalia_area
+			area = west_thuringia_area
+			area = eastphalia_area
+			area = northern_saxony_area
+			area = west_thuringia_area
+			area = hesse_area
+			province_id = 78
+			region = swabia_bavarian_region
+			region = upper_rhenish_circle_region
+    	value = 55
+        }
+	}
+	
+    mean_time_to_happen = { days = 1 }	
+	option = {
+	name = FHRE_HYW_EVENTS.1.opta
+	set_global_flag = HYW_TREATY_OCEH_GERMANY_2_1
+	clr_global_flag = HYW_TREATY_OCEH_DENMARK_2
+	}
+}

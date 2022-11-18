@@ -1,0 +1,29 @@
+#french_alliances.txt
+#2010-dec-18 FB	corrected dates of Auld Alliance (note: DW makes the Auld Alliance a guarantee but I believe it should be an alliance)
+#2011-jun-11 FB added France-PAP and France AVI alliances
+
+# Burgundy and Auvergne
+dependency = {
+	subject_type = "temporary_union"
+	first = BUR
+	second = AUV
+	start_date = 1346.10.27
+	end_date = 1360.9.29
+}
+
+# Duchy of Burgundy and County of Burgundy/Bourgogne
+dependency = {
+	subject_type = "personal_union"
+	first = BUR
+	second = BGG
+	start_date = 1346.10.27
+	end_date = 1482.3.27
+}
+
+dependency = {
+	subject_type = "personal_union"
+	first = BUR
+	second = ARS
+	start_date = 1346.10.27
+	end_date = 1482.3.27
+}

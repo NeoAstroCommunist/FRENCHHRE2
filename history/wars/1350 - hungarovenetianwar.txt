@@ -1,0 +1,17 @@
+# name = "CHARLES VS MAGNATES"
+# war_goal = {
+	# type = take_core
+	# casus_belli = cb_core
+	# province = 135			# Szombately
+# }
+
+# 1350.1.1 = {
+	# add_attacker = HUN
+	# add_attacker = H49
+	# add_attacker = CRO
+	# add_attacker = CAR
+	# add_defender = H44
+	# add_defender = H48
+	# add_defender = DLM
+	# add_defender = H47
+# }
