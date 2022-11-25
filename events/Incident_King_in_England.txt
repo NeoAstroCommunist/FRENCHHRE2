@@ -1,0 +1,145 @@
+#### The King in England ###
+
+namespace = king_in_england
+
+country_event = {
+	id = king_in_england.1
+	title = "king_in_england.1.t"
+	desc = "king_in_england.1.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = H09
+	    ENG = { is_subject_of = H09 }
+		government = monarchy
+		is_subject = no
+		has_regency = no
+		is_female = no
+		NOT = { active_imperial_incident = any }
+		NOT = { has_ruler = "Edward III" }
+		is_elector = yes
+		is_emperor = no
+		NOT = { has_global_flag = king_in_england_happened }
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = {
+		name = "king_in_england.1.a"
+		if = {
+			limit = {
+				is_part_of_hre = yes
+				is_emperor = no
+				has_dlc = "Emperor"
+			}
+			set_imperial_incident = incident_king_in_england
+		}
+		set_global_flag = king_in_england_happened
+	}
+	option = {
+		name = "king_in_england.1.b"
+		H09 = { break_union = ENG }
+		ENG = {
+		    define_ruler = {
+            name = "John I"
+            dynasty = "Lancaster"
+            adm = 5
+            dip = 4
+            mil = 4
+            age = 55
+            claim = 95
+            }
+		}
+		set_global_flag = king_in_england_happened
+	}
+	option = {
+		name = "king_in_england.1.c"
+		H09 = { 
+		    exile_ruler_as = { name = normand_king_exiled }
+            exile_consort_as = normand_consort_exiled	
+            exile_heir_as = normand_heir_exiled			
+		    break_union = ENG 
+			define_ruler = {
+                name = "John I"
+                dynasty = "Lancaster"
+                adm = 5
+                dip = 4
+                mil = 4
+                age = 55
+                claim = 95
+            }
+		}
+		switch_tag = ENG
+		ENG = { set_ruler = normand_king_exiled set_consort = normand_consort_exiled set_heir = normand_heir_exiled }
+		set_global_flag = king_in_england_happened
+	}
+}
+
+country_event = {
+	id = king_in_england.2
+	title = "king_in_england.2.t"
+	desc = "king_in_england.2.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = { # elevate england to an hre kingdom
+		name = "king_in_england.2.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1000
+				alliance_with = H09
+			}
+		}
+		add_imperial_influence = -10
+		custom_tooltip = king_in_england_elevated_tt
+		reverse_add_opinion = {
+			who = H09
+			modifier = elevated_england
+		}
+		tooltip = {
+			H09 = {
+			    inherit = ENG
+				change_tag = ENG
+				if = {
+	     			limit = { monarchy_or_harem_gov = yes NOT = { has_country_modifier = title_5 has_country_modifier = title_6 } }
+    				change_title_5 = yes
+		       	}
+				add_prestige = 25
+				reverse_add_opinion = {
+					who = emperor
+					modifier = elevated_england
+				}
+			}
+		}
+			H09 = {
+				set_country_flag = king_in_england_elevated
+				country_event = { id = king_in_england_war.3 days = 3 }
+			}
+	}
+	option = { # reject
+		name = "king_in_england.2.c"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1000
+				is_rival = H09
+			}
+		}
+		custom_tooltip = king_in_england_rejection_tt
+		reverse_add_opinion = {
+			who = H09
+			modifier = opinion_england_not_recognized
+		}
+			H09 = {
+				set_country_flag = king_in_england_rejection
+				country_event = { id = king_in_england_war.3 days = 3 }
+			}
+	}
+}

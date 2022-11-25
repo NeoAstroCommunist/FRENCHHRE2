@@ -4,6 +4,7 @@
 #                                    #
 ######################################
 
+namespace = flavor_hyw
 
 # flavor_hyw.01-05 - France wins the Plantagenet-Valois Conflict
 country_event = {
@@ -174,6 +175,7 @@ country_event = {
 	
 	trigger = {
 		tag = GER
+		is_at_war = no
 		NOT = { dynasty = "Luidolfinger" }
 		has_global_flag = hundred_years_war
 		OR = { has_regency = no has_consort_regency = yes }
@@ -296,7 +298,7 @@ country_event = {
 	trigger = {
 		tag = GER
 		war_with = DEN
-		77 = { controlled_by = DEN } #Paris
+		81 = { controlled_by = DEN } #Paris
 		has_global_flag = hundred_years_war
 		NOT = {
 			any_owned_province = {
@@ -306,7 +308,7 @@ country_event = {
 		}
 		NOT = {
 			any_owned_province = {
-				area = upper_swabia_area
+				area = upper_franconia_area
 				controlled_by = ROOT
 			}
 		}
@@ -409,14 +411,12 @@ country_event = {
 			}
 			add_core = ROOT
 		}
-		77 = {
-			if = {
-				limit = {
-					is_city = yes
-					NOT = { is_core = ROOT }
-				}
-				add_core = ROOT
+		upper_franconia_area = {
+			limit = {
+				is_city = yes
+				NOT = { is_core = ROOT }
 			}
+			add_core = ROOT
 		}
 		GER = { country_event = { id = flavor_hyw.91 days = 1 } }
 		log = "FE-TempHYW:[GetYear]:[Root.GetName]:got crushed, HYW ended:flavor_hyw.15"
@@ -896,7 +896,7 @@ country_event = {
 		has_global_flag = hundred_years_war
 		tag = GER
 		war_with = DEN
-		77 = { controlled_by = DEN } #Paris
+		81 = { controlled_by = DEN } #Paris
 		NOT = {
 			any_owned_province = {
 				superregion = germany_superregion

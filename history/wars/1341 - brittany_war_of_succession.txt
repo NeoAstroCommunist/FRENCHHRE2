@@ -24,7 +24,6 @@ war_goal = {
 	add_defender = HES
 	add_defender = WES
 	add_defender = AUG
-	add_defender = HAB
 	
 } # Death of Jean III de Bretagne
 

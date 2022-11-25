@@ -7,7 +7,7 @@ country_event = {
 	picture = CONQUEST_eventPicture
 	
 	trigger = {
-		is_year = 1359
+		is_year = 1361
 		has_country_flag = ruler_prisonner_of_war
 		has_regency = yes
 		OR = {
@@ -232,7 +232,8 @@ country_event = {
 			limit = {
 				is_city = yes
 				OR = {
-					owned_by = ROOT
+					owned_by = GER
+					owned_by = WES
 					owner = { is_vassal_of_trigger = { scp_root = yes } }
 					owner = { junior_union_with = ROOT }
 				}

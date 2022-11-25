@@ -19,7 +19,7 @@ country_decisions = {
 						overlord = { ai = yes }
 					}
 				}
-				NOT = { has_country_flag = bur_inherit }
+				NOT = { has_ruler_flag = bur_inherit }
 			}
 		}
 		allow = {
@@ -63,7 +63,7 @@ country_decisions = {
 						overlord = { ai = yes }
 					}
 				}
-				NOT = { has_country_flag = bur_inherit }
+				NOT = { has_ruler_flag = bur_inherit }
 			}
 		}
 		allow = {
@@ -99,7 +99,7 @@ country_decisions = {
 						overlord = { ai = yes }
 					}
 				}
-				NOT = { has_country_flag = bur_inherit }
+				NOT = { has_ruler_flag = bur_inherit }
 			}
 		}
 		allow = {
@@ -136,7 +136,7 @@ country_decisions = {
 						overlord = { ai = yes }
 					}
 				}
-				NOT = { has_country_flag = bur_inherit }
+				NOT = { has_ruler_flag = bur_inherit }
 			}
 		}
 		allow = {
@@ -174,7 +174,7 @@ country_decisions = {
 						overlord = { ai = yes }
 					}
 				}
-				NOT = { has_country_flag = bur_inherit }
+				NOT = { has_ruler_flag = bur_inherit }
 			}
 		}
 		allow = {
@@ -212,7 +212,7 @@ country_decisions = {
 						overlord = { ai = yes }
 					}
 				}
-				NOT = { has_country_flag = bur_inherit }
+				NOT = { has_ruler_flag = bur_inherit }
 			}
 		}
 		allow = {
@@ -250,7 +250,7 @@ country_decisions = {
 						overlord = { ai = yes }
 					}
 				}
-				NOT = { has_country_flag = bur_inherit }
+				NOT = { has_ruler_flag = bur_inherit }
 			}
 		}
 		allow = {
@@ -288,7 +288,7 @@ country_decisions = {
 						overlord = { ai = yes }
 					}
 				}
-				NOT = { has_country_flag = bur_inherit }
+				NOT = { has_ruler_flag = bur_inherit }
 			}
 		}
 		allow = {
@@ -326,7 +326,7 @@ country_decisions = {
 						overlord = { ai = yes }
 					}
 				}
-				NOT = { has_country_flag = bur_inherit }
+				NOT = { has_ruler_flag = bur_inherit }
 			}
 		}
 		allow = {
@@ -357,7 +357,7 @@ country_decisions = {
 				NOT = { personal_union_limited = 1 }
 				custom_trigger_tooltip = {tooltip ="is_free_or_tributary_trigger_tooltip" is_free_or_tributary_trigger = yes }
 			}
-			NOT = { has_country_flag = bur_inherit }
+			NOT = { has_ruler_flag = bur_inherit }
 		}
 		effect = {
 			BUR = {
@@ -394,7 +394,7 @@ country_decisions = {
 			#is_subject_other_than_tributary_trigger = yes
 			NOT = { has_country_flag = burgundian_escape_clause }
 			NOT = { has_country_flag = burgundian_succession_crisis }
-			NOT = { has_country_flag = bur_inherit }
+			NOT = { has_ruler_flag = bur_inherit }
 		}
 		allow = {
 			total_development = 175

@@ -1,9 +1,12 @@
 # Lordship of Ireland
 
-government = monarchy
-add_government_reform = Pol_Succession1 #feel free to revise
-add_government_reform = Pol_Assembly1
-add_government_reform = Pol_Nobility1
+	government = republic
+	add_government_reform = Pol_Mandate2
+	add_government_reform = Pol_Stylings1
+	add_government_reform = Pol_ExtraPowers1
+	add_government_reform = Pol_Assembly3
+	add_government_reform = Pol_TermOfOffice1
+	add_government_reform = Pol_Nobility1
 government_rank = 1
 mercantilism = 0.0
 primary_culture = hiberno_norman

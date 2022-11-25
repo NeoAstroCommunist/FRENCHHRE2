@@ -4,6 +4,8 @@
 # written by Gigau
 ########################################
 
+namespace = flavor_bri
+
 # Brittany War of Succession
 country_event = {
 	id = flavor_bri.1

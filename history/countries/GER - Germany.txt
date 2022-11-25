@@ -17,7 +17,7 @@ add_accepted_culture = rhine_alemanisch
 add_accepted_culture = suisse
 add_accepted_culture = austrian
 religion = catholic
-capital = 77	# Berlin
+capital = 81	# Berlin
 historical_rival = DEN
 
 1000.1.1 = {

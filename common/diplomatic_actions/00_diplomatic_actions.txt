@@ -513,6 +513,7 @@ declarewar = {
 					tag = GER
 					FROM = { tag = DEN }
 				}
+				core_claim = FROM
 			}
 		}
 	}

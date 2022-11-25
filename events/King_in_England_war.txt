@@ -1,0 +1,718 @@
+
+#Here starts event chain for war
+namespace = king_in_england_war
+
+
+country_event = {
+	id = king_in_england_war.3
+	title = "king_in_england_war.3.t"
+	desc = {
+		trigger = {
+			has_country_flag = king_in_england_elevated
+		}
+		desc = "king_in_england_war.3.d"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = king_in_england_rejection
+		}
+		desc = "king_in_england_war.3.d2"
+	}
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		trigger = {
+			has_country_flag = king_in_england_elevated
+		}
+		ai_chance = { 
+			factor = 1
+		}
+		name = "king_in_england_war.3.a"
+	    inherit = ENG
+		change_tag = ENG
+		every_province = {
+     		limit = { owned_by = ENG OR = { region = south_england_region region = north_england_region } }
+     		set_in_empire = yes
+      	}
+		IF = {
+		    limit = { WLS = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = WLS OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { NOL = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = NOL OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { H36 = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = H36 OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { NOL = { is_subject_of = ENG } DRH = { is_subject_of = NOL } }
+     		every_province = {
+     			limit = { owned_by = DRH OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		if = {
+   			limit = { monarchy_or_harem_gov = yes NOT = { has_country_modifier = title_5 has_country_modifier = title_6 } }
+    		change_title_5 = yes
+		}
+		reverse_add_opinion = {
+			who = emperor
+			modifier = elevated_england
+		}
+	}
+	option = {
+		trigger = {
+			has_country_flag = king_in_england_rejection
+		}
+		name = "king_in_england_war.3.b"
+		ai_chance = { 
+			factor = 60
+			modifier = {
+				factor = 100
+				total_development = 400
+			}
+		}
+		#England demands justice, starts event chain to decide sides in possible upcoming war
+		set_global_flag = king_in_england_war_incoming
+		set_variable = {
+        which = england_crown_support
+        value = 0
+        }
+		emperor = { set_country_flag = antienglish_emperor save_global_event_target_as = emperor_that_denied }
+		every_elector = { limit = { is_emperor = no NOT = { tag = H09 } } country_event = { id = king_in_england_war.4 } }
+		every_country = { limit = { is_part_of_hre = yes OR = { is_rival = H09 is_rival = emperor } } country_event = { id = king_in_england_war.4 } }
+	}
+	option = {
+		trigger = {
+			has_country_flag = king_in_england_rejection
+		}
+		name = "king_in_england_war.3.c"
+		ai_chance = { 
+			factor = 20
+			modifier = {
+				factor = 0
+				total_development = 400
+			}
+		}
+		
+		#Here England will leave. I thought of making another path for war against England, but it won't make too much sense - England is too strong and unlike electoral war where both sides get support, in this case emperor would be agressor and won't have much chance.
+	   	elector = no
+		inherit = ENG
+		change_tag = ENG
+		if = {
+   			limit = { monarchy_or_harem_gov = yes NOT = { has_country_modifier = title_5 has_country_modifier = title_6 } }
+    		change_title_5 = yes
+		}
+		set_capital = 236
+	}
+	option = {
+		trigger = {
+			has_country_flag = king_in_england_rejection
+		}
+		"name = king_in_england_war.3.optd"
+		ai_chance = { 
+			factor = 20
+		}
+		emperor = { add_imperial_influence = 25 }
+	}
+}
+
+country_event = {
+	id = king_in_england_war.4
+	title = "king_in_england_war.4.t"
+	desc = "king_in_england_war.4.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+	    name = "king_in_england_war.4.a"
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 50
+				OR = {
+    				ai_attitude = {
+    					who = emperor
+    					attitude = attitude_rivalry
+     				}
+    				ai_attitude = {
+     					who = emperor
+     					attitude = attitude_hostile
+     				}
+    				ai_attitude = {
+    					who = emperor
+    					attitude = attitude_outraged
+    				}
+    				ai_attitude = {
+    					who = emperor
+    					attitude = attitude_disloyal
+    				}
+    				ai_attitude = {
+    					who = emperor
+    					attitude = attitude_rebellious
+    				}
+				}
+			}
+			modifier = {
+				factor = 50
+	      		OR = {
+     				ai_attitude = {  
+    					who = H09
+    					attitude = attitude_friendly
+    				}
+    				ai_attitude = {
+    					who = H09
+    					attitude = attitude_loyal
+    				}
+    				ai_attitude = {
+    					who = H09
+    					attitude = attitude_allied
+   		    		}
+    			}
+			}
+		}
+		set_country_flag = proenglish_country
+        change_variable = {
+        which = england_crown_support
+        value = 1
+        }
+	}
+	option = {
+		name = "king_in_england_war.4.b"
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 100
+				OR = {
+    				ai_attitude = {
+    					who = H09
+    					attitude = attitude_rivalry
+     				}
+    				ai_attitude = {
+     					who = H09
+     					attitude = attitude_hostile
+     				}
+    				ai_attitude = {
+    					who = H09
+    					attitude = attitude_outraged
+    				}
+    				ai_attitude = {
+    					who = H09
+    					attitude = attitude_disloyal
+    				}
+    				ai_attitude = {
+    					who = H09
+    					attitude = attitude_rebellious
+    				}
+				}
+			}
+			modifier = {
+				factor = 75
+	      		OR = {
+     				ai_attitude = {  
+    					who = emperor
+    					attitude = attitude_friendly
+    				}
+    				ai_attitude = {
+    					who = emperor
+    					attitude = attitude_loyal
+    				}
+    				ai_attitude = {
+    					who = emperor
+    					attitude = attitude_allied
+   		    		}
+    			}
+			}
+		}
+		set_country_flag = antienglish_country
+		change_variable = {
+        which = england_crown_support
+        value = -1
+        }
+	}
+	option = {
+		name = "king_in_england_war.4.c"
+		ai_chance = { 
+			factor = 0
+		}
+		add_prestige = -5
+	}
+}
+
+country_event = {
+	id = king_in_england_war.5
+	title = "king_in_england_war.5.t"
+	desc = "king_in_england_war.5.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = H09
+		is_at_war = no
+		government = monarchy
+		emperor = { hsa_country_flag = antienglish_emperor }
+		NOT = { truce_with = emperor }
+		has_global_flag = king_in_england_war_incoming
+		is_emperor = no #add failsafe in case of emperorship going to Normandy during conflict
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = { clr_global_flag = king_in_england_war_incoming }
+	
+	option = {
+		name = "king_in_england_war.5.a"
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.2	
+                is_variable_equal = {
+                	which = england_crown_support
+                	value = 1
+                }
+			}
+			modifier = {
+				factor = 1.5	
+                is_variable_equal = {
+                	which = england_crown_support
+                	value = 2
+                }
+			}
+			modifier = {
+				factor = 2	
+                check_variable = {
+                	which = england_crown_support
+                	value = 3
+                }
+			}
+			modifier = {
+				factor = 2	
+                army_strength = {
+                	who = emperor
+                	value = 1.5
+                }
+			}
+		}
+		H09 = {  
+		    declare_war_with_cb = {
+            who = emperor
+            casus_belli = cb_insult_capital
+            }
+		}
+		set_global_flag = king_in_england_war_started
+		every_elector = { limit = { OR = { has_country_flag = proenglish_country has_country_flag = antienglish_country } } country_event = { id = king_in_england_war.11 days = 3 } } #Event to call electors to war should be here
+	}
+	option = {
+		name = "king_in_england_war.5.b"
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.2	
+                NOT = {				
+                    check_variable = {
+                    	which = england_crown_support
+                    	value = -1
+                    }
+				}
+			}
+			modifier = {
+				factor = 1.5	
+                NOT = {				
+                    check_variable = {
+                    	which = england_crown_support
+                    	value = -2
+                    }
+				}
+			}
+			modifier = {
+				factor = 2
+                NOT = {				
+                    check_variable = {
+                    	which = england_crown_support
+                    	value = -3
+                    }
+				}
+			}
+			modifier = {
+				factor = 2
+                NOT = {				
+                    army_strength = {
+                    	who = emperor
+                     	value = 0.5
+                    }
+				}
+			}
+		}
+		emperor = { add_imperial_influence = 30 }
+		add_prestige = -50
+		add_legitimacy = -50
+	}
+}
+
+country_event = {
+	id = king_in_england_war.6
+	title = "king_in_england_war.6.t"
+	desc = "king_in_england_war.6.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	trigger = { 
+	    is_emperor = yes
+		has_country_flag = antienglish_emperor
+        OR = {
+            H09 = { capital_scope = { controlled_by = emperor } }		
+    	    war_score_against = {
+             	who = H09
+             	value = 50
+            }
+		}
+		has_global_flag = king_in_england_war_started
+	}
+	
+	mean_time_to_happen = { months = 1 }
+	
+	option = {
+		name = "king_in_england_war.6.a"
+		H09 = { country_event = { id = king_in_england_war.9 } }
+	}
+}
+
+country_event = {
+	id = king_in_england_war.7
+	title = "king_in_england_war.7.t"
+	desc = "king_in_england_war.7.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	trigger = {
+        tag = H09
+        emperor = { has_country_flag = antienglish_emperor }	
+        OR = {
+            emperor = { capital_scope = { controlled_by = H09 } }		
+    	    war_score_against = {
+             	who = emperor
+             	value = 50
+            }
+		}
+		has_global_flag = king_in_england_war_started
+	}
+	
+	mean_time_to_happen = { months = 1 }
+	
+	option = {
+		name = "king_in_england_war.7.a"
+		emperor = { country_event = { id = king_in_england_war.10 } }
+	}
+}
+
+country_event = {
+	id = king_in_england_war.8
+	title = "king_in_england_war.8.t"
+	desc = "king_in_england_war.8.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	trigger = {
+        tag = H09
+		OR = {
+        emperor = { NOT = { has_country_flag = antienglish_emperor } }
+        is_emperor = yes
+        }
+		OR = { has_global_flag = king_in_england_war_incoming has_global_flag = king_in_england_war_started }
+	}
+	mean_time_to_happen = { months = 1 }
+    option = {
+		name = "king_in_england_war.8.a"
+		ai_chance = { 
+			factor = 1
+		}
+		event_target:emperor_that_denied = { white_peace = H09 } #Due to rival dying conflict has ended in your favour
+		inherit = ENG
+		change_tag = ENG
+		every_province = {
+     		limit = { owned_by = ENG OR = { region = south_england_region region = north_england_region } }
+     		set_in_empire = yes
+      	}
+		IF = {
+		    limit = { WLS = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = WLS OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { NOL = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = NOL OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { H36 = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = H36 OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { NOL = { is_subject_of = ENG } DRH = { is_subject_of = NOL } }
+     		every_province = {
+     			limit = { owned_by = DRH OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		if = {
+   			limit = { monarchy_or_harem_gov = yes NOT = { has_country_modifier = title_5 has_country_modifier = title_6 } }
+    		change_title_5 = yes
+		}
+	}
+}
+
+country_event = {
+	id = king_in_england_war.9
+	title = "king_in_england_war.9.t"
+	desc = "king_in_england_war.9.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "king_in_england_war.9.a"
+		#Normand duke escapes to isles
+		event_target:emperor_that_denied = { white_peace = H09 }
+		H09 = { 
+		    elector = no
+		    exile_ruler_as = { name = normand_king_exiled }
+            exile_consort_as = normand_consort_exiled
+            exile_heir_as = normand_heir_exiled			
+		    break_union = ENG			
+		}
+		IF = {
+		    limit = { GUY = { is_subject_of = H09 } }
+			grant_independence = yes
+		}
+		switch_tag = ENG
+		ENG = { set_ruler = normand_king_exiled set_consort = normand_consort_exiled set_heir = normand_heir_exiled }
+	}
+}
+
+country_event = {
+	id = king_in_england_war.10
+	title = "king_in_england_war.10.t"
+	desc = "king_in_england_war.10.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "king_in_england_war.10.a"
+		#Emperor is deposed, England becomes kingdom inside HRE
+		white_peace = H09
+		H09 = { 
+		    inherit = ENG 
+		    change_tag = ENG 
+		}
+		every_province = {
+     		limit = { owned_by = ENG OR = { region = south_england_region region = north_england_region } }
+     		set_in_empire = yes
+      	}
+		IF = {
+		    limit = { WLS = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = WLS OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { NOL = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = NOL OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { H36 = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = H36 OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { NOL = { is_subject_of = ENG } DRH = { is_subject_of = NOL } }
+     		every_province = {
+     			limit = { owned_by = DRH OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		if = {
+   			limit = { monarchy_or_harem_gov = yes NOT = { has_country_modifier = title_5 has_country_modifier = title_6 } }
+    		change_title_5 = yes
+		}
+		emperor = { set_emperor = no }
+	}
+}
+
+country_event = {
+	id = king_in_england_war.11
+	title = "king_in_england_war.11.t"
+	desc = "king_in_england_war.11.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "king_in_england_war.11.a"
+		ai_chance = { 
+			factor = 95
+		}
+		IF = {
+		    limit = { has_country_flag = proenglish_country }
+			clr_country_flag = proenglish_country
+			join_all_offensive_wars_of = H09
+        }		
+		IF = {
+		    limit = { has_country_flag = antienglish_country }
+			clr_country_flag = antienglish_country
+			join_all_defensive_wars_of = emperor
+		}
+	}
+	option = {
+		name = "king_in_england_war.11.b"
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 15	
+                is_at_war = yes
+			}
+		}
+	}
+}
+
+#War over
+
+country_event = {
+	id = king_in_england_war.12
+	title = "king_in_england_war.12.t"
+	desc = "king_in_england_war.12.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = H09
+		OR = {
+		    AND = {
+	    	    NOT = { ENG = { is_subject_of = H09 } }
+	    	    NOT = { 236 = { owned_by = H09 } }
+			}
+			AND = {
+			    has_global_flag = king_in_england_war_started
+				NOT = {
+    				ENG = { 
+	     			    is_in_war = {
+                            defender_leader = emperor
+                        }
+	     			}
+   	     		}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = {
+		name = "king_in_england_war.12.a"
+		clr_global_flag = king_in_england_war_incoming
+		clr_global_flag = king_in_england_war_started
+	}
+}
+
+country_event = {
+	id = king_in_england_war.13
+	title = "king_in_england_war.13.t"
+	desc = "king_in_england_war.13.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = H09
+		H09 = { is_emperor = yes }
+		government = monarchy
+		is_subject = no
+		has_regency = no
+		is_female = no
+		NOT = { active_imperial_incident = any }
+		NOT = { has_ruler = "Edward III" }
+		is_elector = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = {
+		name = "king_in_england_war.13.a"
+		#Add opinion modifier(small debuff) crown from the gutter to all countries in HRE
+		inherit = ENG
+		change_tag = ENG
+		set_capital = 236
+		every_province = {
+     		limit = { owned_by = ENG OR = { region = south_england_region region = north_england_region } }
+     		set_in_empire = yes
+      	}
+		IF = {
+		    limit = { WLS = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = WLS OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { NOL = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = NOL OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { H36 = { is_subject_of = ENG } }
+     		every_province = {
+     			limit = { owned_by = H36 OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		IF = {
+		    limit = { NOL = { is_subject_of = ENG } DRH = { is_subject_of = NOL } }
+     		every_province = {
+     			limit = { owned_by = DRH OR = { region = south_england_region region = north_england_region } }
+     		    set_in_empire = yes
+      		}
+		}
+		if = {
+   			limit = { monarchy_or_harem_gov = yes NOT = { has_country_modifier = title_5 has_country_modifier = title_6 } }
+    		change_title_5 = yes
+		}
+	}
+}

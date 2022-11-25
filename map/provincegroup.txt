@@ -480,7 +480,7 @@ theme_system_group = {
 }
 
 aquitaine_group = {
-	973 56 86 1369 2187 2637 55
+	973 56 86 1369 2187 2637 55 3728 3738
 }
 
 # manchurian_steppe_group = { #Not used yet, verify if re-activated

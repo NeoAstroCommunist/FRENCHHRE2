@@ -1,0 +1,96 @@
+# default options are 0-based
+# In console, can use imperial_incident [key] to immediately begin an incident
+
+incident_king_in_england = {
+    event = king_in_england.2
+	default_option = 1
+	
+	can_stop = {
+		OR = {
+			NOT = {
+				exists = H09
+			}
+			NOT = { ENG = { is_subject_of = H09 } }
+			H09 = {
+				is_subject = yes
+			}
+			H09 = {
+				NOT = { government = monarchy }
+			}
+		}
+	}
+	
+	0 = { # grant
+		factor = 1
+		modifier = {
+			factor = 15
+			OR = {
+				ai_attitude = {
+					who = H09
+					attitude = attitude_friendly
+				}
+				ai_attitude = {
+					who = H09
+					attitude = attitude_loyal
+				}
+				ai_attitude = {
+					who = H09
+					attitude = attitude_allied
+				}
+			}
+		}
+	}
+	
+	1 = { # deny
+		factor = 1
+		modifier = {
+			factor = 2
+			AND = {
+			is_neighbor_of = H09
+			NOT = { total_development = H09 }
+			}
+		}
+		modifier = {
+			factor = 2
+			ai_attitude = {
+				who = H09
+				attitude = attitude_neutral
+			}
+		}
+		modifier = {
+			factor = 100
+			OR = {
+			    NOT = {	
+                    has_opinion = {
+                    	who = ROOT
+                       	value = 20
+                    }
+				}
+				ai_attitude = {
+					who = H09
+					attitude = attitude_rivalry
+				}
+				ai_attitude = {
+					who = H09
+					attitude = attitude_hostile
+				}
+				ai_attitude = {
+					who = H09
+					attitude = attitude_threatened
+				}
+				ai_attitude = {
+					who = H09
+					attitude = attitude_outraged
+				}
+				ai_attitude = {
+					who = H09
+					attitude = attitude_disloyal
+				}
+				ai_attitude = {
+					who = H09
+					attitude = attitude_rebellious
+				}
+			}
+		}
+	}
+}

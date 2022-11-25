@@ -1,5 +1,47 @@
 #My dear diplomacy file
 
+guarantee = {
+	first = GER
+	second = PAP
+	start_date = 1356.1.1
+	end_date = 1577.1.1
+}
+
+alliance = {
+	first = POL
+	second = H43
+	start_date = 1347.9.26
+	end_date = 1497.12.31
+}
+
+alliance = {
+	first = PRU
+	second = LIT
+	start_date = 1300.1.1
+	end_date = 1497.12.31
+}
+
+alliance = {
+	first = DEN
+	second = HOL
+	start_date = 1300.1.1
+	end_date = 1497.12.31
+}
+
+alliance = {
+	first = DEN
+	second = KOL
+	start_date = 1300.1.1
+	end_date = 1497.12.31
+}
+
+alliance = {
+	first = GER
+	second = UTR
+	start_date = 1300.1.1
+	end_date = 1497.12.31
+}
+
 dependency = {
 	subject_type = "custom_vassal"
 	first = PLT

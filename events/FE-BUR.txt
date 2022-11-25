@@ -2483,7 +2483,7 @@ country_event = {
 	option = {
 		name = "flavor_bur.1051.a"
 		ai_chance = { factor = 100 }
-		hidden_effect = { set_country_flag = bur_inherit }
+		hidden_effect = { set_ruler_flag = bur_inherit }
 		log = "FE-BUR:[GetYear]:[Root.GetName]:got inherited by [BUR.GetName]:flavor_bur.1051"
 		every_subject_country = {
 			limit = { 

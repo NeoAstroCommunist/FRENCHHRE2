@@ -1,0 +1,46 @@
+country_decisions = {
+	burgundy_artois_marriage = {
+		potential = {
+			tag = BUR
+			NOT = { is_lesser_in_union = yes }
+			is_female = no
+
+			exists = ARS
+			ARS = {
+				is_female = yes
+				monarchy_or_harem_gov = yes
+				is_at_war = no
+				ai = yes
+				OR = {
+					is_free_or_tributary_trigger = yes
+					is_subject_of = BUR
+					AND = {
+						is_subject_other_than_tributary_trigger = yes
+						overlord = { ai = yes }
+					}
+				}
+				NOT = { has_ruler_flag = bur_inherit }
+			}
+		}
+		allow = {
+			dip = 3
+			is_at_war = no
+		}
+		effect = {
+			set_country_flag = bur_artois_inherit_done
+
+			ARS = {
+				country_event = { id = flavor_bur.1051 days = 0 }
+			}
+			if = {
+				limit = {
+					ARS = { has_ruler = "Margarethe III" }
+				}
+				set_country_flag = margarethe_marriage
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
