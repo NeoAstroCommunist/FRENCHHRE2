@@ -1,7 +1,8 @@
 # 3333 - Mhaigh Eo/Mayo
 
-owner = HBK
-controller = HBK
+owner = H38
+controller = H38
+add_core = H38
 add_core = HBK
 
 capital = "Caisleán an Bharraigh" # Castlebar

@@ -147,7 +147,15 @@ dependency = {
 }
 
 dependency = {
-	subject_type = "daimyo_vassal"
+	subject_type = "decentrilized_subject"
+	first = ENG
+	second = WLM
+	start_date = 1282.1.1
+	end_date = 1485.7.18
+}
+
+dependency = {
+	subject_type = "decentralized_vassal"
 	first = NOL
 	second = DRH
 	start_date = 1356.1.1

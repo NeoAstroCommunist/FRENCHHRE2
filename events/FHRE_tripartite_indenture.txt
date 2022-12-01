@@ -1,0 +1,1720 @@
+namespace = frenchhre_indenture
+
+country_event = {
+	id = frenchhre_indenture.1
+	title = "frenchhre_indenture.1.t"
+	desc = "frenchhre_indenture.1.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	trigger = {
+	    always = no #No need for scripted deaths
+		tag = ENG
+		is_year = 1376
+		has_ruler = "Edward III"
+		is_lesser_in_union = no
+		has_regency = no
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	option = {
+		name = "frenchhre_indenture.1.a"
+		ENG = {
+			kill_ruler = yes
+			define_ruler = {
+            name = "Richard II"
+            dynasty = "Plantagenet"
+            adm = 2
+            dip = 2
+            mil = 1
+            age = 9
+            claim = 95
+            } 
+		}
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.2
+	title = "frenchhre_indenture.2.t"
+	desc = "frenchhre_indenture.2.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = ENG
+		is_year = 1389
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	option = {
+		name = "frenchhre_indenture.2.a"
+		ai_chance = { 
+    		factor = 1 
+		}
+		427 = { add_unrest = 10 }
+		247 = { add_unrest = 10 }
+		set_country_flag = richard_consolidation
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.3
+	title = "frenchhre_indenture.3.t"
+	desc = "frenchhre_indenture.3.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = ENG
+		has_country_flag = richard_consolidation
+		is_year = 1399
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	option = {
+		name = "frenchhre_indenture.3.a"
+		ai_chance = { 
+    		factor = 1 
+		}
+		clr_country_flag = richard_consolidation
+		set_country_flag = tripartite_indenture_imminent
+		239 = {
+		    spawn_rebels = {
+            type = warlord_rebels
+            size = 2
+            }
+		}
+		WLS = { add_liberty_desire = 100 }
+		ENG = {  
+		    create_subject = {
+                subject_type = rebellious_decentralized_vassal
+                subject = WLS
+            }
+		}
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.4
+	title = "frenchhre_indenture.4.t"
+	desc = "frenchhre_indenture.4.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	trigger = {
+        OR = {
+            overlord_of = ENG
+            AND = {
+                tag = ENG
+                is_subject = no
+            }
+        }
+		has_country_flag = tripartite_indenture_imminent
+		is_year = 1400
+		NOT = { year = 1420 }
+		NOL = { is_subject_of = ENG }
+		WLS = { is_subject_of = ENG is_subject_of_type = rebellious_decentralized_vassal }
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	option = {
+		name = "frenchhre_indenture.4.a"
+		ai_chance = { 
+    		factor = 1 
+		}
+		clr_country_flag = tripartite_indenture_imminent
+		WLS = { 
+    		define_ruler = {
+                name = "Owain"
+                dynasty = "Mathrafal"
+                adm = 4
+                dip = 3
+                mil = 6
+                age = 41
+                claim = 95
+            }
+			define_ruler_to_general = {
+				fire = 6
+				shock = 6
+				manuever = 6
+				siege = 3
+			}
+			if = {
+     			limit = { has_heir = yes }
+     			hidden_effect = {
+     				kill_heir = { allow_new_heir = no }	
+      			}
+     		}
+			remove_historical_friend = ENG
+		}
+		remove_historical_friend = WLS
+		ENG = {  
+		    create_subject = {
+                subject_type = warlord
+                subject = WLM
+            }
+		}
+		WLM = { 
+    		define_ruler = {
+                name = "Henry 'Hotspur'"
+                dynasty = "Percy"
+                adm = 3
+                dip = 3
+                mil = 5
+                age = 36
+                claim = 95
+            }
+			define_ruler_to_general = {
+				fire = 4
+				shock = 4
+				manuever = 2
+				siege = 4
+			}
+			declare_war_with_cb = { who = WLS casus_belli = cb_claim_throne }
+		}
+		set_global_flag = welsh_rising
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.5
+	title = "frenchhre_indenture.5.t"
+	desc = "frenchhre_indenture.5.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+	    tag = WLM
+		has_global_flag = welsh_rising
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			value = 4
+			area = wales_area
+			is_city = yes
+		}
+	}
+	
+	mean_time_to_happen = { days = 21 }
+	
+	option = {
+		name = "frenchhre_indenture.5.a"
+		ai_chance = { 
+    		factor = 1 
+		}
+		clr_global_flag = welsh_rising
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.6
+	title = "frenchhre_indenture.6.t"
+	desc = "frenchhre_indenture.6.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+	    tag = WLS
+		has_global_flag = welsh_rising
+		is_in_war = {
+        attacker_leader = WLM
+        duration = 730
+        }
+	}
+	
+	mean_time_to_happen = { months = 1 }
+	
+	option = {
+		name = "frenchhre_indenture.6.a"
+		ai_chance = { 
+    		factor = 1 
+		}
+		WLM = { set_country_flag = problems_in_wales }
+		every_province = {
+		    limit = { owned_by = WLM area = wales_area }
+			add_province_modifier = { name = wlm_defense_collapse duration = 730 }
+		}
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.7
+	title = "frenchhre_indenture.7.t"
+	desc = "frenchhre_indenture.7.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+	    tag = WLM
+		has_global_flag = welsh_rising
+		is_in_war = {
+        defender_leader = WLS
+        duration = 1090
+        }
+	}
+	
+	mean_time_to_happen = { months = 2 }
+	
+	option = {
+		name = "frenchhre_indenture.7.a"
+		ai_chance = { 
+    		factor = 1 
+		}
+		white_peace = WLS
+		all_owned_provinces = { 
+		    limit = { owned_by = WLM }
+			cede_province = WLS
+		}
+		247 = {
+		    spawn_rebels = {
+            type = warlord_rebels
+            size = 4
+            }
+		}
+		add_truce_with = ENG
+		ENG = { add_truce_with = WLS }
+		IF = {
+		    limit = { ENG = { is_subject_of = H09 } }
+	       	add_truce_with = H09
+       		H09 = { add_truce_with = WLS }
+		}
+		set_global_flag = tripartite_indenture_started
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.8
+	title = "frenchhre_indenture.8.t"
+	desc = "frenchhre_indenture.8.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+	    tag = WLS
+		has_global_flag = welsh_rising
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = { days = 21 }
+	
+	option = {
+		name = "frenchhre_indenture.8.a"
+		ai_chance = { 
+    		factor = 1 
+		}
+		all_owned_provinces = { 
+		    limit = { owned_by = WLM }
+			cede_province = WLS
+		}
+		247 = {
+		    spawn_rebels = {
+            type = warlord_rebels
+            size = 4
+            }
+		}
+		add_truce_with = ENG
+		ENG = { add_truce_with = WLS }
+		IF = {
+		    limit = { ENG = { is_subject_of = H09 } }
+	       	add_truce_with = H09
+       		H09 = { add_truce_with = WLS }
+		}
+		clr_global_flag = welsh_rising
+		set_global_flag = tripartite_indenture_started
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.9
+	title = "frenchhre_indenture.9.t"
+	desc = "frenchhre_indenture.9.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+	    tag = NOL
+		has_global_flag = tripartite_indenture_started
+		NOT = { ENG = { has_spawned_rebels = warlord_rebels } }
+	}
+	
+	mean_time_to_happen = { days = 21 }
+	
+	option = {
+		name = "frenchhre_indenture.9.a"
+		ai_chance = { 
+    		factor = 1
+		}
+		WLS = { country_event = { id = frenchhre_indenture.10 } }
+		clr_global_flag = tripartite_indenture_started
+		set_global_flag = tripartite_indenture_plot
+		NOL = { add_liberty_desire = 100 }
+		ENG = {  
+		    create_subject = {
+                subject_type = rebellious_decentralized_vassal
+                subject = NOL
+            }
+		}
+		hidden_effect = {
+            ENG = {
+                IF = {
+                    limit = {
+                        is_subject = no
+                    }
+                country_event = { id = frenchhre_indenture.30 random = 14 days = 21 }
+                }
+                ELSE = { 
+                    overlord = {
+                        country_event = { id = frenchhre_indenture.30 random = 14 days = 21 }
+                    }
+                }
+            }
+		}
+	}
+	option = {
+		name = "frenchhre_indenture.9.b"
+		ai_chance = { 
+    		factor = 0
+		}
+		WLS = { country_event = { id = frenchhre_indenture.11 } }
+		clr_global_flag = tripartite_indenture_started
+		set_global_flag = tripartite_indenture_wales_alone
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.10
+	title = "frenchhre_indenture.10.t"
+	desc = "frenchhre_indenture.10.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = "frenchhre_indenture.10.a"
+		ai_chance = { 
+    		factor = 1 
+		}
+		set_country_flag = ti_planning_stage_1		
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.11
+	title = "frenchhre_indenture.11.t"
+	desc = "frenchhre_indenture.11.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = "frenchhre_indenture.11.a"
+		ai_chance = { 
+    		factor = 1 
+		}
+		#add event for negotiations with England
+	}
+}
+
+#First stage start
+
+country_event = {
+	id = frenchhre_indenture.12
+	title = "frenchhre_indenture.12.t"
+	desc = "frenchhre_indenture.12.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.12.a" #Support Hereford Chester and Gloucester unloyal citizens.
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -50
+		add_dip_power = -100
+		clr_country_flag = ti_planning_stage_1
+		hidden_effect = {
+		    IF = {
+			    limit = { ENG = { has_country_flag = protected_against_hereford } }
+				WLS = { set_country_flag = hereford_betrayal_failure country_event = { id = frenchhre_indenture.13 } }
+			}
+			ELSE = {
+			    ENG = { set_country_flag = hereford_betrayal }
+				WLS = { country_event = { id = frenchhre_indenture.13 } }
+			}
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.12.b" #Sent help into celtic Cornwall to inspire separate rebellion.
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -100
+		add_mil_power = -100
+		clr_country_flag = ti_planning_stage_1
+		hidden_effect = {
+		    IF = {
+			    limit = { ENG = { has_country_flag = protected_against_cornwall } }
+				WLS = { set_country_flag = cornwall_betrayal_failure country_event = { id = frenchhre_indenture.13 } }
+			}
+			ELSE = {
+			    ENG = { set_country_flag = cornwall_betrayal }
+				WLS = { country_event = { id = frenchhre_indenture.13 } }
+			}
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.12.c" #implant agents into garrisons of Thryding and Lancaster to take castle at the start of the war.
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -100
+		add_adm_power = -100
+		clr_country_flag = ti_planning_stage_1
+		hidden_effect = {
+		    IF = {
+			    limit = { ENG = { has_country_flag = protected_against_thryding } }
+				WLS = { set_country_flag = thryding_betrayal_failure country_event = { id = frenchhre_indenture.13 } }
+			}
+			ELSE = {
+			    random_list = {
+                    80 = {
+                       ENG = { set_country_flag = thryding_betrayal }
+					   WLS = { country_event = { id = frenchhre_indenture.13 } }
+                    }
+                   20 = {
+                       WLS = { set_country_flag = thryding_betrayal_failure_2 country_event = { id = frenchhre_indenture.13 } }
+                    }
+                }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.13
+	title = "frenchhre_indenture.13.t"
+	desc = {
+		trigger = {
+			has_country_flag = hereford_betrayal_failure
+		}
+		desc = "frenchhre_indenture.13.d"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = cornwall_betrayal_failure
+		}
+		desc = "frenchhre_indenture.13.d2"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = thryding_betrayal_failure
+		}
+		desc = "frenchhre_indenture.13.d3"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = thryding_betrayal_failure_2
+		}
+		desc = "frenchhre_indenture.13.d4"
+	}
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = hereford_betrayal }
+		}
+		desc = "frenchhre_indenture.13.d5"
+	}
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = cornwall_betrayal }
+		}
+		desc = "frenchhre_indenture.13.d6"
+	}
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = thryding_betrayal }
+		}
+		desc = "frenchhre_indenture.13.d7"
+	}
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+	    trigger = { OR = { ENG = { has_country_flag = hereford_betrayal } ENG = { has_country_flag = cornwall_betrayal } ENG = { has_country_flag = thryding_betrayal } } }
+		name = "frenchhre_indenture.13.a"
+		ai_chance = { factor = 1 }
+		set_country_flag = ti_planning_stage_2
+		IF = {
+		    limit = { ENG = { has_country_flag = thryding_betrayal } WLS = { set_country_flag = ti_stage_1_great_success } }
+		}
+		hidden_effect = {
+            ENG = {
+                IF = {
+                    limit = {
+                        is_subject = no
+                    }
+                    country_event = { id = frenchhre_indenture.31 random = 14 days = 21 }
+                }
+                ELSE = { 
+                    overlord = {
+                        country_event = { id = frenchhre_indenture.31 random = 14 days = 21 }
+                    }
+                }
+            }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.13.b"
+		ai_chance = { factor = 1 }
+		set_country_flag = ti_planning_stage_2
+		trigger = { OR = { WLS = { has_country_flag = hereford_betrayal_failure } WLS = { has_country_flag = cornwall_betrayal_failure } WLS = { has_country_flag = thryding_betrayal_failure } WLS = { has_country_flag = thryding_betrayal_failure_2 } } }
+		hidden_effect = {
+            ENG = {
+                IF = {
+                    limit = {
+                        is_subject = no
+                    }
+                country_event = { id = frenchhre_indenture.31 random = 14 days = 21 }
+                }
+                ELSE = { 
+                    overlord = {
+                        country_event = { id = frenchhre_indenture.31 random = 14 days = 21 }
+                    }
+                }
+            }
+		}
+	}
+}
+
+#Second stage start
+
+country_event = {
+	id = frenchhre_indenture.14
+	title = "frenchhre_indenture.14.t"
+	desc = "frenchhre_indenture.14.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.14.a" #Contact irish lords to overthrow lordship.
+		ai_chance = { 
+    		factor = 1 
+		}
+		trigger = { any_country = { primary_culture = irish is_subject = no } }
+		#Add tooltip
+		add_dip_power = -100
+		clr_country_flag = ti_planning_stage_2
+		hidden_effect = {
+		    IF = {
+			    limit = { ENG = { has_country_flag = protected_against_irish } }
+				WLS = { set_country_flag = irish_betrayal_failure country_event = { id = frenchhre_indenture.15 } }
+			}
+			ELSE = {
+			    every_country = { limit = { primary_culture = irish } country_event = { id = frenchhre_indenture.18 days = 3 } } #set_country_flag = irish_betrayal 
+			}
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.14.b" #Negotiate lowlands for scottish help
+		trigger = { NOT = { SCO = { is_subject = YES } } 248 = { owned_by = NOL } 1416 = { owned_by = NOL } }
+		ai_chance = { 
+    		factor = 1
+		}		
+		#Add tooltip
+		add_dip_power = -100
+		clr_country_flag = ti_planning_stage_2
+		hidden_effect = {
+		    IF = {
+			    limit = { ENG = { has_country_flag = protected_against_scotland } }
+				WLS = { set_country_flag = scottish_betrayal_failure country_event = { id = frenchhre_indenture.15 } }
+			}
+			ELSE = {
+			    NOL = { country_event = { id = frenchhre_indenture.20 days = 3 } } #set_country_flag = scottish_betrayal
+			}
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.14.c" #Provoke unruly english nobility
+		ai_chance = { 
+    		factor = 1 
+		}		
+		#Add tooltip
+		add_treasury = -50
+		add_adm_power = -50
+		add_dip_power = -100
+		clr_country_flag = ti_planning_stage_2
+		hidden_effect = {
+		    IF = {
+			    limit = { OR = { ENG = { has_country_flag = protected_against_nobility } ENG = { has_spy_network_in = { who = WLS value = 75 } } } }
+				WLS = { set_country_flag = nobility_betrayal_failure country_event = { id = frenchhre_indenture.15 } }
+			}
+			ELSE = {
+			    random_list = {
+                    75 = {
+                       ENG = { set_country_flag = nobility_betrayal }
+					   WLS = { country_event = { id = frenchhre_indenture.15 } }
+                    }
+                   25 = {
+                       WLS = { set_country_flag = nobility_betrayal_failure_2 country_event = { id = frenchhre_indenture.15 } }
+                    }
+                }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.15
+	title = "frenchhre_indenture.15.t"
+	desc = {
+		trigger = {
+			has_country_flag = irish_betrayal_failure
+		}
+		desc = "frenchhre_indenture.15.d"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = scottish_betrayal_failure
+		}
+		desc = "frenchhre_indenture.15.d2"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = nobility_betrayal_failure
+		}
+		desc = "frenchhre_indenture.15.d3"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = nobility_betrayal_failure_2
+		}
+		desc = "frenchhre_indenture.15.d4"
+	}
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = irish_betrayal }
+		}
+		desc = "frenchhre_indenture.15.d5"
+	}
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+	    trigger = { OR = { ENG = { has_country_flag = irish_betrayal } ENG = { has_country_flag = scottish_betrayal } ENG = { has_country_flag = nobility_betrayal } } }
+		name = "frenchhre_indenture.15.a"
+		ai_chance = { 
+    		factor = 1 
+		}
+		set_country_flag = ti_planning_stage_3
+		IF = {
+		    limit = { ENG = { has_country_flag = nobility_betrayal } WLS = { set_country_flag = ti_stage_2_great_success } }
+		}
+		hidden_effect = {
+            ENG = {
+                IF = {
+                    limit = {
+                        is_subject = no
+                    }
+                country_event = { id = frenchhre_indenture.32 random = 14 days = 21 }
+                }
+                ELSE = { 
+                    overlord = {
+                        country_event = { id = frenchhre_indenture.32 random = 14 days = 21 }
+                    }
+                }
+            }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.15.b"
+		ai_chance = { 
+    		factor = 1 
+		}		
+		set_country_flag = ti_planning_stage_3
+		trigger = { OR = { WLS = { has_country_flag = irish_betrayal_failure } WLS = { has_country_flag = scottish_betrayal_failure } WLS = { has_country_flag = nobility_betrayal_failure } WLS = { has_country_flag = nobility_betrayal_failure_2 } } }
+		hidden_effect = {
+            ENG = {
+                IF = {
+                    limit = {
+                        is_subject = no
+                    }
+                country_event = { id = frenchhre_indenture.32 random = 14 days = 21 }
+                }
+                ELSE = { 
+                    overlord = {
+                        country_event = { id = frenchhre_indenture.32 random = 14 days = 21 }
+                    }
+                }
+            }
+		}
+	}
+}
+
+#Third stage start
+
+country_event = {
+	id = frenchhre_indenture.16
+	title = "frenchhre_indenture.16.t"
+	desc = "frenchhre_indenture.16.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.16.a" #Ask Brittany for help
+		trigger = { NOT = { BRI = { is_subject = yes } } }
+		#Add tooltip
+		add_dip_power = -100
+		clr_country_flag = ti_planning_stage_3
+		hidden_effect = {
+		    IF = {
+			    limit = { ENG = { has_country_flag = protected_against_brittany } }
+				WLS = { set_country_flag = breton_betrayal_failure country_event = { id = frenchhre_indenture.17 } }
+			}
+			ELSE = {
+			    BRI = { country_event = { id = frenchhre_indenture.23 days = 7 } } #set_country_flag = breton_betrayal 
+			}
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.16.b" #Ask Emperor for help
+		trigger = { NOT = { OR = { AND = { H09 = { is_emperor = yes } ENG = { is_subject_of = H09 } } ENG = { is_emperor = yes } } } }
+		#Add tooltip
+		add_dip_power = -150
+		clr_country_flag = ti_planning_stage_3
+		hidden_effect = {
+		    IF = {
+			    limit = { ENG = { has_country_flag = protected_against_emperor } }
+				WLS = { set_country_flag = emperor_betrayal_failure country_event = { id = frenchhre_indenture.17 } }
+			}
+			ELSE = {
+			    emperor = { country_event = { id = frenchhre_indenture.25 days = 7 } } #set_country_flag = emperor_betrayal
+			}
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.16.c" #Ask Pope for help
+		trigger = { WLS = { religion = catholic } }
+		#Add tooltip
+		add_treasury = -50
+		add_adm_power = -100
+		add_dip_power = -100
+		clr_country_flag = ti_planning_stage_3
+		hidden_effect = {
+		    IF = {
+			    limit = { ENG = { has_country_flag = protected_against_pope } }
+				WLS = { set_country_flag = pope_betrayal_failure country_event = { id = frenchhre_indenture.17 } }
+			}
+			random_list = {
+                20 = {
+    				WLS = { set_country_flag = pope_betrayal_failure_2 country_event = { id = frenchhre_indenture.17 } }
+                }
+                80 = {
+        			IF = {
+         			    limit = { ENG = { has_ruler_modifier = tolerant_society } }
+        			    PAP = { set_country_flag = england_tolerant country_event = { id = frenchhre_indenture.27 days = 30 } } #set_country_flag = pope_betrayal
+         			}
+         			IF = {
+          			    limit = { OR = { ENG = { has_ruler_modifier = heretic_tolerance } ENG = { religion = lollard } } }
+           			    PAP = { set_country_flag = england_heretic country_event = { id = frenchhre_indenture.27 days = 30 } } #set_country_flag = pope_betrayal
+        			}
+					ELSE = { 
+           			    PAP = { set_country_flag = england_normal country_event = { id = frenchhre_indenture.27 days = 30 } } #set_country_flag = pope_betrayal					
+					}
+                }
+            }
+		}
+	}
+	option = {
+	    name = "frenchhre_indenture.16.e" #If all blocked
+		trigger = { NOT = { WLS = { religion = catholic } } OR = { AND = { H09 = { is_emperor = yes } ENG = { is_subject_of = H09 } } ENG = { is_emperor = yes } } BRI = { is_subject = yes } }
+		set_country_flag = wales_all_blocked
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.17
+	title = "frenchhre_indenture.17.t"
+	desc = {
+		trigger = {
+			has_country_flag = breton_betrayal_failure
+		}
+		desc = "frenchhre_indenture.17.d"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = emperor_betrayal_failure
+		}
+		desc = "frenchhre_indenture.17.d2"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = pope_betrayal_failure
+		}
+		desc = "frenchhre_indenture.17.d3"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = pope_betrayal_failure_2
+		}
+		desc = "frenchhre_indenture.17.d4"
+	}
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = breton_betrayal }
+		}
+		desc = "frenchhre_indenture.17.d5"
+	}
+	desc = {
+		trigger = {
+		    OR = {
+			    ENG = { has_country_flag = emperor_betrayal }
+			    ENG = { has_country_flag = emperor_betrayal_2 }
+		    }
+		}
+		desc = "frenchhre_indenture.17.d6"
+	}
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = pope_betrayal }
+		}
+		desc = "frenchhre_indenture.17.d7"
+	}
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = pope_betrayal_2 }
+		}
+		desc = "frenchhre_indenture.17.d8"
+	}
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = pope_betrayal_3 }
+		}
+		desc = "frenchhre_indenture.17.d9"
+	}
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+	    trigger = { OR = { ENG = { has_country_flag = breton_betrayal } ENG = { has_country_flag = emperor_betrayal } ENG = { has_country_flag = emperor_betrayal_2 } ENG = { has_country_flag = pope_betrayal } ENG = { has_country_flag = pope_betrayal_2 } ENG = { has_country_flag = pope_betrayal_3 } } }
+		name = "frenchhre_indenture.17.a"
+		set_country_flag = ti_planning_stage_4
+		IF = {
+		    limit = { ENG = { has_country_flag = pope_betrayal } WLS = { set_country_flag = ti_stage_3_great_success } }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.17.b"
+		set_country_flag = ti_planning_stage_4
+		trigger = { OR = { WLS = { has_country_flag = breton_betrayal_failure } WLS = { has_country_flag = emperor_betrayal_failure } WLS = { has_country_flag = pope_betrayal_failure } WLS = { has_country_flag = pope_betrayal_failure_2 } WLS = { has_country_flag = pope_betrayal_failure_3 } WLS = { has_country_flag = wales_all_blocked } } }
+	}
+}
+
+#Reply events here
+
+country_event = {
+	id = frenchhre_indenture.18 #Irish reply
+	title = "frenchhre_indenture.18.t"
+	desc = "frenchhre_indenture.18.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.18.a" #Agree to help Welsh
+		ai_chance = {
+    		factor = 4
+			modifier = {
+			    factor = 0
+				alliance_with = ENG
+			}
+		}
+		set_country_flag = welsh_irish_ally
+		IF = {
+		    limit = { NOT = { has_country_flag = ireland_replied } }			
+		    WLS = { country_event = { set_country_flag = ireland_replied id = frenchhre_indenture.19 days = 7 } }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.18.b" #Stay loyal to England
+		ai_chance = { 
+    		factor = 1
+		}
+		IF = {
+		    limit = { NOT = { has_country_flag = ireland_replied } } 
+		    WLS = { country_event = { set_country_flag = ireland_replied id = frenchhre_indenture.19 days = 7 } }
+		}
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.19 #Irish reply arrived to Wales
+	title = "frenchhre_indenture.19.t"
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = irish_betrayal }
+		}
+		desc = "frenchhre_indenture.19.d"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = irish_betrayal_failure
+		}
+		desc = "frenchhre_indenture.19.d2"
+	}
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.19.a" #Irish help
+		ai_chance = { 
+    		factor = 1 
+		}
+		trigger = { any_country = { has_country_flag = welsh_irish_ally } }
+		ENG = { set_country_flag = irish_betrayal }
+		WLS = { country_event = { id = frenchhre_indenture.15 days = 3 } }
+	}
+	
+	option = {
+		name = "frenchhre_indenture.19.b" #Irish stay loyal
+		ai_chance = { 
+    		factor = 1 
+		}
+		trigger = { NOT = { any_country = { has_country_flag = welsh_irish_ally } } }
+		WLS = { country_event = { id = frenchhre_indenture.15 days = 3 } set_country_flag = irish_betrayal_failure }
+	}
+}
+
+#Scottish reply
+
+country_event = {
+	id = frenchhre_indenture.20 #Northumberland reply
+	title = "frenchhre_indenture.20.t"
+	desc = "frenchhre_indenture.20.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.20.a" #Agree to give land to Scotland
+		ai_chance = { 
+    		factor = 1
+		}
+		SCO = { country_event = { id = frenchhre_indenture.21 days = 3 } }
+	}
+	
+	option = {
+		name = "frenchhre_indenture.20.b" #Don't give land
+		ai_chance = { 
+    		factor = 0
+		}
+		WLS = { set_country_flag = scottish_betrayal_failure country_event = { id = frenchhre_indenture.15 days = 3 } }
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.21 #Scottish reply 
+	title = "frenchhre_indenture.21.t"
+	desc = "frenchhre_indenture.21.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.21.a" #Take land and help
+		ai_chance = { 
+    		factor = 6
+			modifier = {
+			    factor = 10
+				OR = {
+	    			ai_attitude = {
+	     				who = ENG
+	    				attitude = attitude_rivalry
+     				}
+	    			ai_attitude = {
+	    				who = ENG
+	    				attitude = attitude_hostile
+	    			}
+	    			ai_attitude = {
+	    				who = ENG
+	    				attitude = attitude_threatened
+	    			}
+	    			ai_attitude = {
+	    				who = ENG
+    					attitude = attitude_outraged
+     				}
+				}
+			}
+		}
+		ENG = { set_country_flag = scottish_betrayal }
+		WLS = { country_event = { id = frenchhre_indenture.22 days = 3 } }
+	}
+	
+	option = {
+		name = "frenchhre_indenture.21.b" #Stay neutral
+		ai_chance = { 
+    		factor = 1
+		}
+		WLS = { set_country_flag = scottish_betrayal_failure country_event = { id = frenchhre_indenture.22 days = 3 } }
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.22 #Scottish reply arrived to Wales
+	title = "frenchhre_indenture.22.t"
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = scottish_betrayal }
+		}
+		desc = "frenchhre_indenture.22.d"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = scottish_betrayal_failure
+		}
+		desc = "frenchhre_indenture.22.d2"
+	}
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.22.a" #Scottish help
+		ai_chance = { 
+    		factor = 1
+		}
+		trigger = { ENG = { has_country_flag = scottish_betrayal } }
+		WLS = { country_event = { id = frenchhre_indenture.15 days = 3 } }
+	}
+	
+	option = {
+		name = "frenchhre_indenture.22.b" #Scotland stay loyal
+		ai_chance = { 
+    		factor = 1
+		}
+		trigger = { has_country_flag = scottish_betrayal_failure }
+		WLS = { country_event = { id = frenchhre_indenture.15 days = 3 } }
+	}
+}
+
+#Brittany reply
+
+country_event = {
+	id = frenchhre_indenture.23 #Brittany reply
+	title = "frenchhre_indenture.23.t"
+	desc = "frenchhre_indenture.23.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.23.a" #Agree to help Welsh
+		ai_chance = { 
+    		factor = 10
+		}
+		ENG = { set_country_flag = breton_betrayal }
+		WLS = { country_event = { id = frenchhre_indenture.24 days = 3 } }
+	}
+	
+	option = {
+		name = "frenchhre_indenture.23.b" #Dab on your bros
+		ai_chance = { 
+    		factor = 1
+			modifier = {
+			    factor = 2
+				is_at_war = yes
+			}
+		}
+		WLS = { set_country_flag = breton_betrayal_failure country_event = { id = frenchhre_indenture.24 days = 3 } }
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.24 #Breton reply arrived to Wales
+	title = "frenchhre_indenture.24.t"
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = breton_betrayal }
+		}
+		desc = "frenchhre_indenture.24.d"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = breton_betrayal_failure
+		}
+		desc = "frenchhre_indenture.24.d2"
+	}
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.24.a" #Breton help
+		ai_chance = { 
+    		factor = 1 
+		}
+		trigger = { ENG = { has_country_flag = breton_betrayal } }
+		WLS = { country_event = { id = frenchhre_indenture.17 days = 3 } }
+	}
+	
+	option = {
+		name = "frenchhre_indenture.24.b" #Breton ignore
+		ai_chance = { 
+    		factor = 1 
+		}
+		trigger = { has_country_flag = breton_betrayal_failure }
+		WLS = { country_event = { id = frenchhre_indenture.17 days = 3 } }
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.25 #Emperor asked for help by Wales
+	title = "frenchhre_indenture.25.t"
+	desc = {
+		trigger = {
+    		ENG = { is_part_of_hre = yes is_subject = no }
+		}
+		desc = "frenchhre_indenture.25.d"
+	}
+	desc = {
+		trigger = {
+		    OR = {
+			ENG = { is_part_of_hre = yes }
+			    AND = {
+				    ENG = { is_subject_of = H09 }
+				    H09 = { is_part_of_hre = yes }
+				}
+			}
+		}
+		desc = "frenchhre_indenture.25.d2"
+	}
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.25.a" #Emperor help
+		ai_chance = { 
+    		factor = 1
+            modifier = {
+                factor = 5
+				ENG = { is_part_of_hre = no is_subject = no }
+            }	
+            modifier = {
+                factor = 3
+				emperor = {
+				    has_opinion = {
+                    	who = WLS
+                     	value = 80
+                    }
+				}
+            }			
+		}
+		IF = {
+		    limit = {
+			    ENG = { is_part_of_hre = no is_subject = no }
+			}
+			ENG = { set_country_flag = emperor_betrayal }
+			WLS = { country_event = { id = frenchhre_indenture.26 days = 3 } }
+			
+		}
+		IF = {
+		    limit = {
+			    OR = {
+	         		ENG = { is_part_of_hre = yes }
+	        	    AND = {
+	        			ENG = { is_subject_of = H09 }
+        				H09 = { is_part_of_hre = yes }
+        		    }
+          		}
+     		}
+			ENG = { set_country_flag = emperor_betrayal_2 }
+			WLS = { country_event = { id = frenchhre_indenture.26 days = 3 } }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.25.b" #Emperor ignore
+		ai_chance = { 
+    		factor = 1 
+		}
+		WLS = { set_country_flag = emperor_betrayal_failure country_event = { id = frenchhre_indenture.26 days = 3 } }
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.26 #Emperor reply arrived to Wales
+	title = "frenchhre_indenture.26.t"
+	desc = {
+		trigger = {
+		    OR = {
+     			ENG = { has_country_flag = emperor_betrayal }
+				ENG = { has_country_flag = emperor_betrayal_2 }
+			}
+		}
+		desc = "frenchhre_indenture.26.d"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = emperor_betrayal_failure
+		}
+		desc = "frenchhre_indenture.26.d2"
+	}
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.26.a" #Emperor help
+		ai_chance = { 
+    		factor = 1 
+		}
+		trigger = { OR = { ENG = { has_country_flag = emperor_betrayal } ENG = { has_country_flag = emperor_betrayal_2 } } }
+		WLS = { country_event = { id = frenchhre_indenture.17 days = 3 } }
+	}
+	
+	option = {
+		name = "frenchhre_indenture.26.b" #Emperor won't help
+		ai_chance = { 
+    		factor = 1 
+		}
+		trigger = { has_country_flag = emperor_betrayal_failure }
+		WLS = { country_event = { id = frenchhre_indenture.17 days = 3 } }
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.27 #Pope asked for help by Wales
+	title = "frenchhre_indenture.27.t"
+	desc = {
+		trigger = {
+    		PAP = { has_country_flag = england_tolerant }
+		}
+		desc = "frenchhre_indenture.27.d"
+	}
+	desc = {
+		trigger = {
+		    PAP = { has_country_flag = england_heretic }
+		}
+		desc = "frenchhre_indenture.27.d2"
+	}
+	desc = {
+		trigger = {
+		    PAP = { has_country_flag = england_normal }
+		}
+		desc = "frenchhre_indenture.27.d2"
+	}
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.27.a" #Pope help
+		ai_chance = {
+    		factor = 2
+            modifier = {
+                factor = 5
+				OR = {
+				ENG = { religion = lollard }
+				ENG = { has_ruler_modifier = heretic_tolerance }
+				}
+            }	
+            modifier = {
+                factor = 2
+				ENG = { has_ruler_modifier tolerant_society }
+            }				
+		}
+		IF = {
+		    limit = {
+			    OR = {
+			    ENG = { religion = lollard }
+				ENG = { has_ruler_modifier = heretic_tolerance }
+				}
+			}
+			ENG = { set_country_flag = pope_betrayal }
+			WLS = { country_event = { id = frenchhre_indenture.28 random = 7 days = 30 } }		
+		}
+		IF = {
+		    limit = {
+			    NOT = { ENG = { religion = lollard } }
+			    ENG = { has_ruler_modifier = tolerant_society }
+     		}
+			ENG = { set_country_flag = pope_betrayal_2 }
+			WLS = { country_event = { id = frenchhre_indenture.28 random = 7 days = 30 } }
+		}
+		IF = {
+		    limit = {
+				NOT = { ENG = { religion = lollard } }
+				NOT = { ENG = { has_ruler_modifier = heretic_tolerance } } 
+				NOT = { ENG = { has_ruler_modifier = tolerant_society } }
+			}
+			ENG = { set_country_flag = pope_betrayal_3 }
+		    WLS = { country_event = { id = frenchhre_indenture.28 random = 7 days = 30 } }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.27.b" #Pope ignore
+		ai_chance = { 
+    		factor = 1 
+		}
+		WLS = { set_country_flag = pope_betrayal_failure country_event = { id = frenchhre_indenture.28 random = 7 days = 30 } }
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.28 #Pope reply arrived to Wales
+	title = "frenchhre_indenture.28.t"
+	desc = {
+		trigger = {
+            ENG = { has_country_flag = pope_betrayal }
+		}
+		desc = "frenchhre_indenture.28.d"
+	}
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = pope_betrayal_2 }
+		}
+		desc = "frenchhre_indenture.28.d2"
+	}
+	desc = {
+		trigger = {
+			ENG = { has_country_flag = pope_betrayal_3 }
+		}
+		desc = "frenchhre_indenture.28.d2"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = pope_betrayal_failure
+		}
+		desc = "frenchhre_indenture.28.d2"
+	}
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.28.a" #Pope help
+		ai_chance = { 
+    		factor = 1 
+		}
+		trigger = { OR = { ENG = { has_country_flag = pope_betrayal } ENG = { has_country_flag = pope_betrayal_2 } ENG = { has_country_flag = pope_betrayal_3 } } }
+		WLS = { country_event = { id = frenchhre_indenture.17 days = 3 } }
+	}
+	
+	option = {
+		name = "frenchhre_indenture.28.b" #Pope won't help
+		ai_chance = { 
+    		factor = 1 
+		}
+		trigger = { has_country_flag = pope_betrayal_failure }
+		WLS = { country_event = { id = frenchhre_indenture.17 days = 3 } }
+	}
+}
+
+#English counterattack events
+
+country_event = {
+	id = frenchhre_indenture.30
+	title = "frenchhre_indenture.30.t"
+	desc = "frenchhre_indenture.30.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.30.a" 
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -100
+		add_mil_power = -100
+		hidden_effect = {
+		ENG = { set_country_flag = protected_against_hereford }
+		WLS = { country_event = { id = frenchhre_indenture.12 random = 7 months = 1 } }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.30.b" 
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -50
+		add_mil_power = -150
+		hidden_effect = {
+		ENG = { set_country_flag = protected_against_cornwall }
+		WLS = { country_event = { id = frenchhre_indenture.12 random = 7 months = 1 } }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.30.c" 
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -150
+		add_adm_power = -150
+		hidden_effect = {
+		ENG = { set_country_flag = protected_against_thryding }
+		WLS = { country_event = { id = frenchhre_indenture.12 random = 7 months = 1 } }
+		}
+	}
+	option = {
+		name = "frenchhre_indenture.30.e" 
+		ai_chance = { factor = 0 }
+		#Add tooltip
+		hidden_effect = {
+		WLS = { country_event = { id = frenchhre_indenture.12 random = 7 months = 1 } }
+		}
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.31
+	title = "frenchhre_indenture.31.t"
+	desc = "frenchhre_indenture.31.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.31.a" 
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -50
+		add_mil_power = -100
+		hidden_effect = {
+		ENG = { set_country_flag = protected_against_irish }
+		WLS = { country_event = { id = frenchhre_indenture.14 random = 7 months = 1 } }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.31.b" 
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -100
+		add_dip_power = -200
+		hidden_effect = {
+		ENG = { set_country_flag = protected_against_scotland }
+		WLS = { country_event = { id = frenchhre_indenture.14 random = 7 months = 1 } }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.31.c" 
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -100
+		add_adm_power = -50
+		add_mil_power = -150
+		hidden_effect = {
+		ENG = { set_country_flag = protected_against_nobility }
+		WLS = { country_event = { id = frenchhre_indenture.14 random = 7 months = 1 } }
+		}
+	}
+	option = {
+		name = "frenchhre_indenture.31.e" 
+		ai_chance = { factor = 0 }
+		#Add tooltip
+		hidden_effect = {
+		WLS = { country_event = { id = frenchhre_indenture.14 random = 7 months = 1 } }
+		}
+	}
+}
+
+country_event = {
+	id = frenchhre_indenture.32
+	title = "frenchhre_indenture.32.t"
+	desc = "frenchhre_indenture.32.d"
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "frenchhre_indenture.32.a" 
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -100
+		add_adm_power = -150
+		hidden_effect = {
+		ENG = { set_country_flag = protected_against_brittany }
+		WLS = { country_event = { id = frenchhre_indenture.16 random = 7 months = 1 } }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.32.b" 
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -50
+		add_dip_power = -200
+		hidden_effect = {
+		ENG = { set_country_flag = protected_against_emperor }
+		WLS = { country_event = { id = frenchhre_indenture.16 random = 7 months = 1 } }
+		}
+	}
+	
+	option = {
+		name = "frenchhre_indenture.32.c" 
+		ai_chance = { factor = 1 }
+		#Add tooltip
+		add_treasury = -100
+		add_adm_power = -150
+		add_dip_power = -100
+		PAP = { add_treasury = 50 }
+		hidden_effect = {
+		ENG = { set_country_flag = protected_against_pope }
+		WLS = { country_event = { id = frenchhre_indenture.16 random = 7 months = 1 } }
+		}
+	}
+	option = {
+		name = "frenchhre_indenture.32.e" 
+		ai_chance = { factor = 0 }
+		#Add tooltip
+		hidden_effect = {
+		WLS = { country_event = { id = frenchhre_indenture.16 random = 7 months = 1 } }
+		}
+	}
+}
+
+
+#End war events
+
+# country_event = {
+	# id = frenchhre_indenture.8
+	# title = "frenchhre_indenture.8.t"
+	# desc = "frenchhre_indenture.8.d"
+	# picture = DIPLOMACY_eventPicture
+	# fire_only_once = yes
+	# trigger = {
+	    # always = no
+		# tag = WLS
+		# has_global_flag = welsh_rising
+		# NOT = { is_subject_of = ENG }
+		# is_lesser_in_union = no
+		# has_regency = no
+		# is_at_war = no
+		# has_won_war_against = {
+	    # who = ENG
+	    # max_years_since = 10
+        # }
+	# }
+	# mean_time_to_happen = {
+		# months = 1
+	# }
+	# option = {
+		# name = "frenchhre_indenture.8.a"
+		# 245 = { add_core = NOL cede_province = NOL remove_core = ENG }
+		# 5156 = { add_core = NOL cede_province = NOL remove_core = ENG }
+		# 3324 = { add_core = NOL cede_province = NOL remove_core = ENG }
+		# 4991 = { add_core = NOL cede_province = NOL remove_core = ENG }
+		# 238 = { remove_core = ENG }
+		# 246 = { remove_core = ENG }
+		# 409 = { remove_core = ENG }
+		# 244 = { remove_core = ENG }
+		# 427 = { remove_core = ENG }
+		# 247 = { remove_core = ENG }
+		# 241 = { remove_core = ENG }
+		# 3323 = { remove_core = ENG }
+		# 1412 = { remove_core = ENG }
+		# 242 = { remove_core = ENG }
+		# 1411 = { remove_core = ENG }
+		# 233 = { remove_core = ENG }
+		# 373 = { remove_core = ENG }
+		# 1514 = { remove_core = ENG }
+		# WLS = { 
+		    # grant_independence = yes
+    		# if = {
+      			# limit = { monarchy_or_harem_gov = yes NOT = { has_country_modifier = title_5 has_country_modifier = title_6 } }
+        		# change_title_5 = yes
+    		# }
+		# }
+		# NOL = { 
+		    # grant_independence = yes
+		        # if = {
+	        		# limit = {
+		    			# 246 = {
+		     				# has_province_modifier = "marches_of_scotland"
+		    			# }
+		    			# owns = 246
+		    		# }
+		    		# 246 = {
+		    			# remove_province_modifier = "marches_of_scotland"
+		    		# }
+	    		# }
+    			# if = {
+	    			# limit = {
+	     				# owns = 409
+	    				# 409 = {
+	    					# has_province_modifier = "marches_of_scotland"
+    					# }
+    				# }
+    				# 409 = {
+	    				# remove_province_modifier = "marches_of_scotland"
+    				# }
+    			# }
+    			# 238 = {
+    				# remove_province_modifier = "north_of_england"
+    			# }
+    			# 244 = {
+    				# remove_province_modifier = "north_of_england"
+	    		# }
+    			# 245 = {
+    				# remove_province_modifier = "north_of_england"
+    			# }
+    			# 246 = {
+    				# remove_province_modifier = "north_of_england"
+    			# }
+    			# 409 = {
+	    			# remove_province_modifier = "north_of_england"
+    			# }
+    			# 5156 = {
+	    			# remove_province_modifier = "north_of_england"
+    			# }
+	    	    # inherit = DRH
+        		# if = {
+         			# limit = { monarchy_or_harem_gov = yes NOT = { has_country_modifier = title_5 has_country_modifier = title_6 } }
+            		# change_title_5 = yes
+        		# }
+		    # }
+		# clr_global_flag = welsh_rising
+	# }
+# }
+
+# country_event = {
+	# id = frenchhre_indenture.8
+	# title = "frenchhre_indenture.8.t"
+	# desc = "frenchhre_indenture.8.d"
+	# picture = DIPLOMACY_eventPicture
+	# fire_only_once = yes
+	# trigger = {
+	    # always = no
+		# tag = ENG
+		# has_global_flag = welsh_rising
+		# WLS = { is_subject_of = ENG }
+		# is_lesser_in_union = no
+		# has_regency = no
+		# has_won_war_against = {
+	    # who = WLS
+	    # max_years_since = 10
+        # }
+	# }
+	# mean_time_to_happen = {
+		# months = 1
+	# }
+	# option = {
+		# name = "frenchhre_indenture.8.a"
+        # inherit = NOL
+        # inherit = WLS
+        # inherit = DRH
+        # clr_global_flag = welsh_rising		
+	# }
+# }

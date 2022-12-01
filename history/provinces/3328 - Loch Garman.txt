@@ -1,9 +1,9 @@
 #3328 - Loch Garman/Wexford
 
-owner = H38
-controller = H38
-add_core = H38
+owner = LEI
+controller = LEI
 add_core = LEI
+add_core = H38
 
 capital = "Ros Mhic Treoin" #New Ross
 trade_goods = wheat

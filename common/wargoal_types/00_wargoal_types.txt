@@ -48,7 +48,37 @@
 #
 # --------------------------------------------------------------
 
-#French HRE above
+superiority_insult_mutual_capital_normandy = {
+	type = take_capital
+	
+	attacker = {
+		badboy_factor = 1
+		prestige_factor = 2
+		peace_cost_factor = 0.75
+
+		peace_options = {
+			po_revoke_cores
+			po_gold
+			po_concede_defeat
+			po_humiliate_rival
+		}
+	}
+	
+	defender = {
+		badboy_factor = 1
+		prestige_factor = 2
+		peace_cost_factor = 0.75
+
+		peace_options = {
+			po_revoke_cores
+			po_gold
+			po_concede_defeat
+			po_humiliate_rival
+		}
+	}
+	
+	war_name = NORMAND_EMPEROR_WAR_NAME
+}
 
 fallback_wargoal = {
 	type = superiority
@@ -382,9 +412,6 @@ defend_country_faith = {
 	}
 	
 	defender = {
-		allowed_countries = {
-			religion = ROOT
-		}
 		badboy_factor = 1
 		prestige_factor = 2
 		peace_cost_factor = 0.75
@@ -2658,4 +2685,32 @@ push_back_colonizers = {
 	}
 
 	war_name = PUSH_BACK_COLONIZERS
+}
+
+wg_take_capital_mesoamerican_vassalization = {
+	type = take_capital
+	
+	attacker = {
+		badboy_factor = 0.5
+		prestige_factor = 1.5
+		peace_cost_factor = 0.75
+		
+		peace_options = {
+			po_subjugate_vassal
+			po_become_tributary_state
+		}
+	}
+	
+	defender = {
+		badboy_factor = 0.5
+		prestige_factor = 1.5
+		peace_cost_factor = 0.75
+	
+		peace_options = {
+			po_subjugate_vassal
+			po_become_tributary_state
+		}
+	}
+
+	war_name = MESOAMERICAN_VASSAL_WAR_NAME
 }

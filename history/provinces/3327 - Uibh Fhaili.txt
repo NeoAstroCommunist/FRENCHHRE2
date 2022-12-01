@@ -1,9 +1,9 @@
 # 3327 - Uíbh Fhailí/Offaly
 
-owner = H38
-controller = H38
-add_core = H38
+owner = MEA
+controller = MEA
 add_core = MEA
+add_core = H38
 
 capital = "Tulach Mhór" # Tullamore
 trade_goods = wheat

@@ -13,13 +13,33 @@
 # TRIGGERED - Triggered from within the code or by event effects
 # --------------------------------------------------------------
 
+cb_insult_capital_normandy = {
+	war_goal = superiority_insult_mutual_capital_normandy
+	
+	ai_peace_desire = -35
+	
+	is_triggered_only = yes
+	valid_for_subject = no
+	
+	attacker_disabled_po = {
+		po_demand_provinces
+		po_form_personal_union
+		po_change_government
+		po_change_religion
+		po_become_vassal
+		po_become_tributary_state
+	}
+	
+	months = 12
+}
+
 # Restoration of recently broken PU
 cb_restore_personal_union = {
 	valid_for_subject = no
 
 	is_triggered_only = yes
 	months = 240
-    ai_peace_desire = -30
+
 	prerequisites = {
 		#OR = {
 			monarchy_or_harem_gov = yes
@@ -425,10 +445,7 @@ cb_core = {
 				}
 			}
 			AND = {
-			    OR = {
 				tag = HUN
-				has_country_flag = hungarian_magnate
-				}
 				balkan_superregion = {
 					owned_by = FROM
 					has_province_modifier = hungarian_estates

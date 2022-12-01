@@ -60,6 +60,9 @@ H59 = "countries/Englaland.txt"
 H60 = "countries/Tarragona.txt" #No flag yet
 H61 = "countries/Turov.txt" #No flag yet
 H62 = "countries/Minsk.txt" #No flag yet
+#TI country
+WLM = "countries/Welshmarch.txt"
+#
 
 #Med integrated countries
 ANI	= "countries/Antioch.txt"	

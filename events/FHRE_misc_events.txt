@@ -1,0 +1,124 @@
+########################################
+# Burgundy & Netherlands Events        #
+########################################
+
+namespace = fhre_misc_events
+
+# Burgundy offers Flanders trade off - Artois for Nevers
+country_event = {
+	id = fhre_misc_events.1
+	title = "fhre_misc_events.1.title"
+	desc = "fhre_misc_events.1.desc"
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+        tag = BUR
+		BUR = { is_subject = no is_at_war = no }
+		ARS = { is_subject_of = BUR }
+		FLA = { exists = yes is_subject = no is_neighbor_of = ARS is_at_war = no }
+		NEV = { is_subject_of = FLA }
+	}
+	
+	mean_time_to_happen = {
+		years = 10
+		modifier = {
+			factor = 0.75
+			BUR = { alliance_with = FLA }
+		}
+		modifier = {
+			factor = 0.75
+			BUR = { marriage_with = FLA }
+		}
+	}
+	
+	option = {
+		name = "fhre_misc_events.1.a"
+		ai_chance = {
+			factor = 1
+		}
+		FLA = { country_event = { id = fhre_misc_events.2 days = 7 } }
+	}
+	option = {
+		name = "fhre_misc_events.1.b"
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = {
+	id = fhre_misc_events.2
+	title = "fhre_misc_events.2.title"
+	desc = "fhre_misc_events.2.desc"
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "fhre_misc_events.2.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1000
+				alliance_with = BUR
+			}
+			modifier = {
+				factor = 1000
+				marriage_with = BUR
+			}
+		}
+		BUR = { country_event = { id = fhre_misc_events.2 days = 7 } create_union = NEV set_country_flag = artois_deal_accepted }
+		FLA = { create_union = ARS }
+	}
+	option = {
+		name = "fhre_misc_events.2.b"
+		ai_chance = {
+			factor = 1
+		}
+		BUR = { country_event = { id = fhre_misc_events.3 days = 7 } set_country_flag = artois_deal_denied }
+	}
+}
+
+country_event = {
+	id = fhre_misc_events.3
+	title = "fhre_misc_events.3.t"
+	desc = {
+		trigger = {
+			has_country_flag = artois_deal_accepted
+		}
+		desc = "fhre_misc_events.3.d"
+	}
+	desc = {
+		trigger = {
+			has_country_flag = artois_deal_denied
+		}
+		desc = "fhre_misc_events.3.d2"
+	}
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		trigger = {
+			has_country_flag = artois_deal_accepted
+		}
+		name = "fhre_misc_events.3.a"
+		reverse_add_opinion = {
+			who = FLA
+			modifier = fla_artois_deal_accepted
+		}
+	}
+	option = {
+		trigger = {
+			has_country_flag = artois_deal_denied
+		}
+		name = "fhre_misc_events.3.b"
+		reverse_add_opinion = {
+			who = FLA
+			modifier = fla_artois_deal_declined
+		}
+	}
+}

@@ -1,8 +1,8 @@
 # 1412 - Deheubarth
 
-owner = WLS
-controller = WLS
-add_core = WLS
+owner = WLM
+controller = WLM
+add_core = WLM
 
 capital = "Aberteifi"
 trade_goods = wool

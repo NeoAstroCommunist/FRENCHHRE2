@@ -1,10 +1,10 @@
 # North Munster - An Cl�r/Claire
 
-owner = H38
-controller = H38
-add_core = H38
-add_core = FTZ
+owner = THM
+controller = THM
 add_core = THM
+add_core = FTZ
+add_core = H38
 
 capital = "Inis" # Ennis
 trade_goods = fish

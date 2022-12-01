@@ -43,4 +43,324 @@ country_decisions = {
 			factor = 1
 		}
 	}
+	tripartite_indenture_information_decision = {
+		potential = {
+			tag = WLS
+			OR = {
+                has_country_flag = ti_planning_stage_1
+		        has_country_flag = ti_planning_stage_2
+				has_country_flag = ti_planning_stage_3
+				has_country_flag = ti_planning_stage_4
+			}
+		}
+		allow = {
+			always = no
+		}
+		effect = {
+		    custom_tooltip = tripartite_indenture_info
+		    IF = {
+			    limit = { ENG = { has_country_flag = protected_against_hereford } WLS = { has_spy_network_in = { who = ENG value = 70 } } }
+				custom_tooltip = hereford_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = hereford_betrayal } }
+			   custom_tooltip = hereford_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = hereford_betrayal_failure } }
+			   custom_tooltip = hereford_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_cornwall } WLS = { has_spy_network_in = { who = ENG value = 70 } } }
+				custom_tooltip = cornwall_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = cornwall_betrayal } }
+			   custom_tooltip = cornwall_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = cornwall_betrayal_failure } }
+			   custom_tooltip = cornwall_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_thryding } WLS = { has_spy_network_in = { who = ENG value = 70 } } }
+				custom_tooltip = thryding_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = thryding_betrayal } }
+			   custom_tooltip = thryding_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = thryding_betrayal_failure } }
+			   custom_tooltip = thryding_fail
+			}
+			#First stage over
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_irish } WLS = { has_spy_network_in = { who = ENG value = 70 } } }
+				custom_tooltip = irish_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = irish_betrayal } }
+			   custom_tooltip = irish_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = irish_betrayal_failure } }
+			   custom_tooltip = irish_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_scotland } WLS = { has_spy_network_in = { who = ENG value = 70 } } }
+				custom_tooltip = scotland_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = scottish_betrayal } }
+			   custom_tooltip = scotland_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = scottish_betrayal_failure } }
+			   custom_tooltip = scotland_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_nobility } WLS = { has_spy_network_in = { who = ENG value = 70 } } }
+				custom_tooltip = nobility_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = nobility_betrayal } }
+			   custom_tooltip = nobility_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = nobility_betrayal_failure } }
+			   custom_tooltip = nobility_fail
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = nobility_betrayal_failure_2 } }
+			   custom_tooltip = nobility_fail
+			}
+			#Second stage over
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_brittany } WLS = { has_spy_network_in = { who = ENG value = 70 } } }
+				custom_tooltip = brittany_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = breton_betrayal } }
+			   custom_tooltip = breton_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = breton_betrayal_failure } }
+			   custom_tooltip = breton_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_emperor } WLS = { has_spy_network_in = { who = ENG value = 70 } } }
+				custom_tooltip = emperor_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = emperor_betrayal } }
+			   custom_tooltip = emperor_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = emperor_betrayal_failure } }
+			   custom_tooltip = emperor_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_pope } WLS = { has_spy_network_in = { who = ENG value = 70 } } }
+				custom_tooltip = pope_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = pope_betrayal } }
+			   custom_tooltip = pope_succ
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = pope_betrayal_2 } }
+			   custom_tooltip = pope_succ_2
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = pope_betrayal_3 } }
+			   custom_tooltip = pope_succ_3
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = pope_betrayal_failure } }
+			   custom_tooltip = pope_fail
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = pope_betrayal_failure_2 } }
+			   custom_tooltip = pope_fail_2
+			}
+			#Stage 
+			IF = {
+			    limit = { WLS = { has_country_flag = ti_planning_stage_1 } }
+				custom_tooltip = stage_1
+			}
+			IF = {
+			    limit = { WLS = { has_country_flag = ti_planning_stage_2 } }
+				custom_tooltip = stage_2
+			}
+			IF = {
+			    limit = { WLS = { has_country_flag = ti_planning_stage_3 } }
+				custom_tooltip = stage_3
+			}
+			IF = {
+			    limit = { WLS = { has_country_flag = ti_planning_stage_4 } }
+				custom_tooltip = stage_4
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	tripartite_indenture_test_decision = {
+		potential = {
+			tag = WLS
+		}
+		allow = {
+			dip = 3
+			is_at_war = no
+		}
+		effect = {
+		    IF = {
+			    limit = { ENG = { has_country_flag = protected_against_hereford } }
+				custom_tooltip = hereford_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = hereford_betrayal } }
+			   custom_tooltip = hereford_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = hereford_betrayal_failure } }
+			   custom_tooltip = hereford_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_cornwall } }
+				custom_tooltip = cornwall_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = cornwall_betrayal } }
+			   custom_tooltip = cornwall_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = cornwall_betrayal_failure } }
+			   custom_tooltip = cornwall_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_thryding } }
+				custom_tooltip = thryding_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = thryding_betrayal } }
+			   custom_tooltip = thryding_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = thryding_betrayal_failure } }
+			   custom_tooltip = thryding_fail
+			}
+			#First stage over
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_irish } }
+				custom_tooltip = irish_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = irish_betrayal } }
+			   custom_tooltip = irish_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = irish_betrayal_failure } }
+			   custom_tooltip = irish_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_scotland } }
+				custom_tooltip = scotland_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = scottish_betrayal } }
+			   custom_tooltip = scotland_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = scottish_betrayal_failure } }
+			   custom_tooltip = scotland_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_nobility } }
+				custom_tooltip = nobility_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = nobility_betrayal } }
+			   custom_tooltip = nobility_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = nobility_betrayal_failure } }
+			   custom_tooltip = nobility_fail
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = nobility_betrayal_failure_2 } }
+			   custom_tooltip = nobility_fail
+			}
+			#Second stage over
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_brittany } }
+				custom_tooltip = brittany_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = breton_betrayal } }
+			   custom_tooltip = breton_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = breton_betrayal_failure } }
+			   custom_tooltip = breton_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_emperor } }
+				custom_tooltip = emperor_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = emperor_betrayal } }
+			   custom_tooltip = emperor_succ
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = emperor_betrayal_failure } }
+			   custom_tooltip = emperor_fail
+			}
+			IF = {
+			    limit = { ENG = { has_country_flag = protected_against_pope } }
+				custom_tooltip = pope_def
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = pope_betrayal } }
+			   custom_tooltip = pope_succ
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = pope_betrayal_2 } }
+			   custom_tooltip = pope_succ_2
+			}
+			IF = { 
+			   limit = { ENG = { has_country_flag = pope_betrayal_3 } }
+			   custom_tooltip = pope_succ_3
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = pope_betrayal_failure } }
+			   custom_tooltip = pope_fail
+			}
+			IF = { 
+			   limit = { WLS = { has_country_flag = pope_betrayal_failure_2 } }
+			   custom_tooltip = pope_fail_2
+			}
+			#Stage 
+			IF = {
+			    limit = { WLS = { has_country_flag = ti_planning_stage_1 } }
+				custom_tooltip = stage_1
+			}
+			IF = {
+			    limit = { WLS = { has_country_flag = ti_planning_stage_2 } }
+				custom_tooltip = stage_2
+			}
+			IF = {
+			    limit = { WLS = { has_country_flag = ti_planning_stage_3 } }
+				custom_tooltip = stage_3
+			}
+			IF = {
+			    limit = { WLS = { has_country_flag = ti_planning_stage_4 } }
+				custom_tooltip = stage_4
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }

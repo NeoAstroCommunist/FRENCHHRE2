@@ -176,7 +176,7 @@ country_event = {
 	trigger = {
 		tag = GER
 		is_at_war = no
-		NOT = { dynasty = "Luidolfinger" }
+		NOT = { dynasty = "Liudolfinger" }
 		has_global_flag = hundred_years_war
 		OR = { has_regency = no has_consort_regency = yes }
 	}
